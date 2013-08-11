@@ -1,0 +1,215 @@
+<h1 class="page-header"><%= @restaurant.restname %></h1>
+
+<%= link_to "Add new menu item",  new_menuitem_path %>
+
+<div id="MyDialog" title="Customize Order">
+ <form id="d-form">
+    <fieldset>
+        <label for="quantity">Quantity</label>
+        <input type="text" name="quantity" id="quantity" class="required" />
+        <label for="adjustments">Special Instructions</label>
+        <textarea name="adjustments" id="adjustments" class="text ui-widget-content ui-corner-all required"></textarea>
+    </fieldset>
+    </form>
+	
+</div><div class="row">
+<div class="col-6 col-lg-6">
+<% @uniq_itemcategories.each do |u| %>
+<h3><%= u.itemcategory %></h3>
+<%@menuitem1 = Menuitem.find_all_by_itemcategory(u.itemcategory)%>
+
+<form action="show_submit" method="get" accept-charset="utf-8">
+	
+
+	<table class="table table-condensed menu table-hover">
+		<tbody>
+		<% @menuitem1.each do |i|%>
+		<tr class="modalbtn<%=i.id%>"><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td></tr>
+			<script>
+			var itemclass;
+			var total = 0;
+			
+			$(".remove").live('click', function(event) {
+				
+				
+				$(this).parent().parent().fadeOut('slow', function() {
+			    // Animation complete.
+				 total = parseInt($('#total').val());
+							total -=  parseInt($(this).closest('tr').find('.price').val());
+							    $('#total').val(total);
+		
+				$(this).remove();
+			//	$('.order-bucket').hide();
+				
+				
+			
+			  });
+			 
+			});
+		
+			
+			
+			
+			
+				$( ".modalbtn<%=i.id%>" ).click(function() { 
+					itemclass = $(this).attr("class").replace(/[^0-9]/g, '');
+					$( "#MyDialog" ).dialog( "open" ); });
+					
+				$(function() {
+					
+					$('.order-bucket').hide();
+					
+				   $( "#d-form" ).validate({
+					rules: {
+					    // simple rule, converted to {required:true}
+					    quantity:
+					{
+					 required: true,
+					 digits: true,
+					minlength: 1,
+					maxlength: 2
+		            
+					},
+					adjustments:
+				{
+				 required: false,
+				}
+					
+					  }
+					});   
+		         
+			
+
+					$( "#MyDialog" ).dialog({
+						autoOpen: false,
+						height: 300,
+						width: 350,
+						modal: true,
+						buttons: {
+						
+							"Save": function() {
+								
+							
+								bValid =  $("#d-form").valid();
+								                    if (bValid ){
+									var itemname = $("#itemname"+itemclass).text();
+									var qty = $("#quantity").val();
+									var itemprice = parseInt($("#quantity").val()) * parseInt($("#itemunitprice"+itemclass).text());
+									
+										 
+ 
+$('.myTable').append("<tr>" +
+								              "<td><input type='text' name='item[][itemname]'  value='" + itemname + "' readonly /></td>" +
+								              "<td><input type='text' name='item[][quantity]' class='qty' value='" + qty + "' readonly /></td>" +
+								              "<td><input class='price' name='item[][itemprice]' type='text' value='" + itemprice + "' readonly /></td><td><a href='#' class='btn btn-danger remove'>x</a></td>" +
+								            "</tr>").hide().show("slide",{direction: 'up'});
+							
+											$('.order-bucket').show("slide",{direction: 'up'});
+							
+								// $('#orderlist').text($("#itemname"+itemclass).text() + " " + $("#quantity").val() + " " + (parseInt($("#quantity").val() * $("#itemunitprice"+itemclass).text())) );
+								var total = 0;
+							    $('.price').each(function(){
+
+							        total += parseInt($(this).val());
+							    });
+							    $('#total').val(total);
+								
+								$( this ).dialog( "close" );
+								
+							}
+
+							},
+							"Cancel": function() {
+								$( this ).dialog( "close" );
+							}
+						},
+						close: function() {
+							$('#quantity').val("");
+							$('#adjustments').val("");
+						}
+					});
+
+				
+				});
+				
+			
+			</script>
+		<% end %>
+		</tbody>
+		</table>
+		<% end %>
+	</div>
+	
+
+<div class="col-6 col-lg-6">
+	<div class="hotel-info alert alert-success">
+		<p><%= @restaurant.restaddressline1 %><br/><%= @restaurant.restaddressline2 %><br/> Phone: <%= @restaurant.restphone %> </p>
+	
+		<p>Minimum Delivery charges: <%= @restaurant.restdelmin %> Rupees</p>
+		<p>Minimum Delivery time: <%= @restaurant.restdeltime %></p>
+		<p>Timings: <%= "#{@restaurant.resttimingfrom}  am"  %> to <%= "#{@restaurant.resttiminigto}  pm"%></p>
+		</div>
+		<div class="order-bucket">
+				<form action="show_submit" method="get" accept-charset="utf-8" class="hidden">
+					
+
+					<p><input type="submit" value="Continue &rarr;" class="hidden"></p>
+				</form>
+
+				<%= form_for :order, :url => "/orders" do |f| -%>
+
+					<h2>Your order so far</h2>
+					<table class="table myTable table-condensed">
+					<tr><th>Item</th><th>Quantity</th><th>Total Item price</th></tr>
+					</tr>
+					</table>
+					<table class="table totaltable">
+						<tr><td>Your Total</td><td><input name="total" id="total" readonly/></td></tr>
+						</table>
+						<div class=" alert alert-info">Confirm and place your order.</div>
+<% if !user_signed_in? %>
+				<div class="field">
+					<%= f.label :customername, "Your name" %>
+					<%= f.text_field :customername %>
+				</div>  
+
+				<div class="field">
+					<%= f.label :custoemrnumber, "Your number" %>
+					<%= f.text_field :custoemrnumber %>
+				</div>  
+
+					<div class="field">
+						<%= f.label :customeremail, "Your Email" %>
+						<%= f.text_field :customeremail %>
+					</div>
+
+
+				<div class="field">
+					<%= f.label :customeraddress, "Your Address" %>
+					<%= f.text_field :customeraddress %>
+				</div>
+				<% end %>
+
+				<%= hidden_field_tag :restaurant_id, @restaurant.id %>
+
+
+				<div class="field">
+				<%= f.submit "Place Order", :disable_with => 'Adding...', :class =>"btn btn-success" %>
+				</div>
+				<% end -%>
+		<!--	
+			<label for="customername">Your Full Name</label>
+	        <input type="text" name="customername" id="customername" class="required" />
+			<label for="customernumber">Your Phone Number</label>
+	        <input type="text" name="customernumber" id="customernumber" class="required" />
+			<label for="customeraddress">Your Address</label>
+	        <textarea id="customeraddress" class="required" ></textarea>
+			<p><input class="btn btn-success" type='submit' value='Place Order'></p>
+-->
+
+		</div>
+		
+		</div>
+		</div>
+		<%= params.inspect %>
+	

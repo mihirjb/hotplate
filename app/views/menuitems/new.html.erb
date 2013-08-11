@@ -1,0 +1,23 @@
+<%= form_for @menuitem, :html => { :multipart => true } do |f| -%>
+<div class="field">
+	<%= f.label :itemname, "Dish name" %>
+	<%= f.text_field :itemname %>
+</div>  
+
+<div class="field">
+	<%= f.label :itemunitprice, "Dish unit price" %>
+	<%= f.text_field :itemunitprice %>
+</div>  
+
+<div class="field">
+	<%= f.label :itemcategory, "Category or cuisine" %>
+	<%= f.text_field :itemcategory %>
+</div>
+
+<%= hidden_field_tag :restaurant_id, @restaurant.id %>
+
+
+<div class="field">
+<%= f.submit "Add", :disable_with => 'Adding...' %>
+</div>
+<% end -%>

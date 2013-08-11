@@ -1,0 +1,19 @@
+
+<h1>Thank you <%= @orderdetails.customername %></h1><p> for orderering from <%= @restaurantdetails.restname %> </p>
+<div class="alert alert-info">
+	<h3>Your Order Details are</h3>
+	<table class="table ordersummary"><tr class="tableheader"><th>Item</th><th>Quantity</th><th class="price">Price</th></tr>
+	<% @orderitems.each do |o| %>
+		<tr>
+			<td><%= o.itemname %></td>
+			<td><%= o.quantity %></td>
+			<td class="price">Rs. <%= o.itemprice %></td>
+			
+		</tr>
+		<%end%>
+	</table>
+<table class="table ordersummary ordertotal">
+	<tr><td>Total amount </td><td class="price"> <strong>Rs. <%= @orderdetails.total %></strong></td></tr>
+	</table>
+	</div>
+	<div class="alert alert-warning"><h3><%= @restaurantdetails.restname %> takes <%= @restaurantdetails.restdeltime %> to deliver your food to you.</h3><p>Please feel free to surf our site till then. <%= link_to "Go back", root_path, :class=>"alert-link" %></p></div>

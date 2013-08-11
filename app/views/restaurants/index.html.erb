@@ -1,0 +1,10 @@
+<h1>Hi this is the index action for the restaurants and the root of the application</h1>
+<% if @restaurant %>
+	<ul>
+		<% @restaurant.each do |r|%>
+		<li>	<%= r.restname %></li>
+		<% end %>
+		</ul>
+		<% else %>
+		<h2>No restaurant added yet</h2>
+<% end %>

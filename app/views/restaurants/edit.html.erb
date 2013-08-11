@@ -1,0 +1,60 @@
+<%= form_for @restaurant, :html => { :multipart => true } do |f| -%>
+<div class="field">
+	<%= f.label :restusername, "Restaurant username" %>
+	<%= f.text_field :restusername %>
+</div>  
+
+<div class="field">
+	<%= f.label :restname, "Restaurant Full name" %>
+	<%= f.text_field :restname %>
+</div>  
+
+<div class="field">
+	<%= f.label :restaddressline1, "Address Line 1" %>
+	<%= f.text_field :restaddressline1 %>
+</div>
+
+
+<div class="field">
+	<%= f.label :restaddressline2, "Address Line 2" %>
+	<%= f.text_field :restaddressline2 %>
+</div>
+
+<div class="field">
+	<%= f.label :restphone, "Phonenumber" %>
+	<%= f.text_field :restphone %>
+</div>
+
+<div class="field">
+	<%= f.label :restemail, "Restaurant Email" %>
+	<%= f.text_field :restemail %>
+</div>
+
+<div class="field">
+	<%= f.label :resttimingfrom , "Open from" %>
+	<%= f.text_field :resttimingfrom %> 
+</div>
+
+<div class="field">
+	<%= f.label :resttiminigto, "Open to" %>
+	<%= f.text_field :resttiminigto %>
+</div>
+
+<div class="field">
+	<%= f.label :restdeltime, "Minimum delivery time" %>
+	<%= f.text_field :restdeltime %>
+</div>
+
+<div class="field">
+	<%= f.label :restdelmin, "Minimum delivery order" %>
+	<%= f.text_field :restdelmin %>
+</div>	
+<div class="field">
+		<%= f.label :restabout, "More about the restaurant" %>
+		<%=  f.text_area :restabout %>
+	</div>
+
+<div class="field">
+<%= f.submit "Update", :disable_with => 'Updating...' %>
+</div>
+<% end -%>

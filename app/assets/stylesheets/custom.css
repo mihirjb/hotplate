@@ -1,0 +1,103 @@
+
+div.container
+{
+	overflow:auto;
+	margin:0 auto;
+}
+div.col-6
+{
+	width:45%;
+	float:left;
+	padding:2.5%;
+}
+td
+{
+	width:33%;
+	text-align:center;
+	border-bottom:1px solid #ccc;
+	border-collapse:collapse;
+}
+div.hotel-info
+{
+	font-weight:bold;
+	border: 2px solid black;
+	padding:20px;
+	width:92%;
+}
+td input
+{
+	width:80%;
+}
+table.menu 
+{
+	widht:30%;
+}
+table.myTable td
+{
+	border:none;
+}
+table.myTable td input 
+{
+	background-color:transparent;
+	border:none;
+	box-shadow:none;
+}
+table.myTable tr
+{
+	border-bottom:1px solid #ccc;
+	
+}
+
+table.totaltable
+{
+	width:69%;
+}
+table.totaltable td
+{
+	text-align:right;
+}
+.hidden
+{
+	visibility:hidden;
+}
+table.menu tr:hover
+{
+	 cursor: pointer;
+	background-color:#bce8f1;
+}
+table.ordersummary
+{
+	width:50%;
+}
+table.ordersummary *
+{
+	border:none;
+	
+	
+}
+table.ordersummary .price
+{
+	text-align:right;
+	
+}
+table.ordertotal tr
+{
+	border-top:1px solid #000;
+}
+tr.tableheader
+{
+	border-bottom:1px solid #000;
+	
+}
+
+form.navbar-form input.searchqueryfield
+{
+	width:600px;
+	color:#aaa;
+}
+form.navbar-form input.searchqueryfield:focus
+{
+	color:#000;
+	
+}
+

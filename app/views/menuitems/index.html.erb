@@ -1,0 +1,9 @@
+<% if @menuitem %>
+	<ul>
+		<% @menuitem.each do |i|%>
+		<li>	<%= i.itemname %></li>
+		<% end %>
+		</ul>
+		<% else %>
+		<h2>No menuitem added yet</h2>
+<% end %>

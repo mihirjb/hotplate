@@ -1,0 +1,25 @@
+	<%= form_for :order, :url => url_for(:controller => 'orders', :action => 'new') do |f| -%>
+	
+	
+	<div class="field">
+		<%= f.label :customername, "Your name" %>
+		<%= text_field_tag :customername, params[:customername] %>
+	</div>  
+
+	<div class="field">
+		<%= f.label :custoemrnumber, "Your number" %>
+		<%= text_field_tag :custoemrnumber,  params[:customernumber] %>
+	</div>  
+
+	<div class="field">
+		<%= f.label :customeraddress, "Your Address" %>
+		<%= text_field_tag :customeraddress,  params[:customeraddress] %>
+	</div>
+
+	<%= hidden_field_tag :restaurant_id, @restaurant.id %>
+
+
+	<div class="field">
+	<%= f.submit "Place Order", :disable_with => 'Adding...', :class =>"btn btn-success" %>
+	</div>
+	<% end -%>
