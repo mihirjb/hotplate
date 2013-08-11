@@ -20,6 +20,7 @@ Hotplate::Application.routes.draw do
        resources :orders
        resources :orderitems
        
+       devise_for :admins, :controllers => { :registrations => "admins/registrations" }
   
   
   # The priority is based upon order of creation:

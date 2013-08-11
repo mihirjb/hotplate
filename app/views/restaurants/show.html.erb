@@ -1,7 +1,7 @@
 <h1 class="page-header"><%= @restaurant.restname %></h1>
-
+<% if admin_signed_in? %>
 <%= link_to "Add new menu item",  new_menuitem_path %>
-
+<%end%>
 <div id="MyDialog" title="Customize Order">
  <form id="d-form">
     <fieldset>
@@ -15,15 +15,22 @@
 </div><div class="row">
 <div class="col-6 col-lg-6">
 <% @uniq_itemcategories.each do |u| %>
-<h3><%= u.itemcategory %></h3>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<%= Menuitem.find_by_itemcategory(u.itemcategory).id %>">
+		<h3><%= u.itemcategory %></h3>
+      </a>
+    </div>
+    
 <%@menuitem1 = Menuitem.find_all_by_itemcategory(u.itemcategory)%>
-
 <form action="show_submit" method="get" accept-charset="utf-8">
-	
-
+	<div id="collapseOne<%= Menuitem.find_by_itemcategory(u.itemcategory).id %>" class="accordion-body collapse in">
+      <div class="accordion-inner">
 	<table class="table table-condensed menu table-hover">
 		<tbody>
 		<% @menuitem1.each do |i|%>
+		
 		<tr class="modalbtn<%=i.id%>"><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>
 			<script>
 			var itemclass;
@@ -137,7 +144,15 @@ $('.myTable').append("<tr>" +
 		<% end %>
 		</tbody>
 		</table>
+		</div>
+	</div>
+</div>
 		<% end %>
+	
+		</div>
+		</div>
+		</div>
+		
 	</div>
 	
 

@@ -46,3 +46,11 @@
 
 </body>
 </html>
+<script type="text/javascript">
+$(document).ready(function() {
+$('input.typeahead').typeahead({
+  local: ['suggestion1', 'suggestion2', 'suggestion3',...., 'suggestion1']
+  #The typeahead is going to load suggestions from data in local.
+});
+});
+</script>
