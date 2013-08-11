@@ -1,9 +1,12 @@
 Hotplate::Application.routes.draw do
 
 
+  devise_for :admins
+
   devise_for :users
   get "pages/thankyou"
   get "pages/userorderdetails"
+  get "pages/transactionhistory"
 
   # devise_for :admins
 

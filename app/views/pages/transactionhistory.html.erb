@@ -1,0 +1,12 @@
+<h1>Your Order history</h1>
+<% @userorders.each do |o| %>
+<% @userorderitems = Orderitem.find_all_by_order_id(o.id) %>
+
+<h3>Your Order from <%= Restaurant.find(o.restaurant_id).restname %> on <%= o.created_at.to_date.strftime('%d-%m-%Y') %></h3>
+<table class="table table-bordered">
+	<tr><th>Item Name</th><th>Quantity</th><th>Item Price</th>
+<% @userorderitems.each do |oi| %>
+	<tr><td><%= oi.itemname %></td><td><%= oi.quantity %></td><td><%= oi.itemprice %></td></tr>
+<% end %>
+<table>
+<%end%>

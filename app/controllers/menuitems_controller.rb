@@ -1,5 +1,7 @@
 class MenuitemsController < ApplicationController
   
+  before_filter :authenticate_admin!
+  
   def index
     @restaurant = Restaurant.find(params[:id])
     @menuitem = @restaurant.Menuitem.all

@@ -24,7 +24,7 @@
 	<table class="table table-condensed menu table-hover">
 		<tbody>
 		<% @menuitem1.each do |i|%>
-		<tr class="modalbtn<%=i.id%>"><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td></tr>
+		<tr class="modalbtn<%=i.id%>"><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>
 			<script>
 			var itemclass;
 			var total = 0;
@@ -211,5 +211,4 @@ $('.myTable').append("<tr>" +
 		
 		</div>
 		</div>
-		<%= params.inspect %>
 	

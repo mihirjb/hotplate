@@ -27,4 +27,11 @@ class PagesController < ApplicationController
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
   end
+  
+  
+  def transactionhistory
+  
+  @userorders = Order.find_all_by_user_id(current_user.id)
+  end
+  
 end

@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
   
+  before_filter :authenticate_admin!, :except => ["show"]
+  
   def index
     @restaurant = Restaurant.all
   end
