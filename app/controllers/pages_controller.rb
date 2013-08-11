@@ -35,15 +35,6 @@ class PagesController < ApplicationController
   end
   
   
-  def load_suggestions
-     if params[:searchquery]
-       if params[:searchquery].blank?
-         @msg = "Either of the fields cannot be blank, please input correct values and try again"
-       else
-         @suggestions = Restaurant.find(:all, :conditions => ['restname LIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
-       end
-    render json: @suggestions
-  end
-end
+ 
   
 end
