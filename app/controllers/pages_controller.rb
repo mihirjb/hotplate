@@ -21,6 +21,8 @@ class PagesController < ApplicationController
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
     UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurqntdetails).deliver
+     AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+      RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
   end
   
   def userorderdetails
@@ -29,6 +31,8 @@ class PagesController < ApplicationController
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
     UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+    AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+    RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
     
   end
   
