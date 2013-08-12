@@ -15,6 +15,9 @@
 #  restabout        :text
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  restemail        :string(255)
+#  city             :string(255)
+#  deliveryarea     :string(255)
 #
 
 require 'spec_helper'

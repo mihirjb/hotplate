@@ -20,12 +20,16 @@ class PagesController < ApplicationController
 @orderdetails = Order.find_by_user_id(current_user.id, :order =>'created_at DESC')
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
+    UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurqntdetails).deliver
   end
   
   def userorderdetails
+    @user = current_user
 @orderdetails = Order.find_by_user_id(current_user.id, :order =>'created_at DESC')
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
+    UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+    
   end
   
   

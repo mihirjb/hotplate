@@ -10,6 +10,8 @@
 #  updated_at      :datetime         not null
 #  restaurant_id   :integer
 #  total           :integer
+#  customeremail   :string(255)
+#  user_id         :integer
 #
 
 require 'spec_helper'

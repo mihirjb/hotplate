@@ -10,6 +10,8 @@ gem "devise", '1.4.7'
 gem 'cancan'
 gem 'rake', '10.1'
 gem 'will_paginate', '~> 3.0'
+gem 'roadie'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
