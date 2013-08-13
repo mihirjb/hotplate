@@ -29,6 +29,16 @@
 	<%= f.text_field :restemail %>
 </div>
 <div class="field">
+	<%= f.label :city, "Restaurant City" %>
+	<%= f.text_field :city %>
+</div>
+
+<div class="field">
+		<%= f.label :delivers, "Does the restaurant home deliver" %>
+<%= f.select :delivers, [['Yes','True'],['No','False']]%>
+</div>
+
+<div class="field">
 	<%= f.label :resttimingfrom , "Open from" %>
 	<%= f.text_field :resttimingfrom %> 
 </div>
@@ -51,6 +61,10 @@
 		<%= f.label :restabout, "More about the restaurant" %>
 		<%=  f.text_area :restabout %>
 	</div>
+	<div class="field">
+			<%= f.label :deliveryarea, "List of areas the restaurantdelivers" %>
+			<%=  f.text_area :deliveryarea %>
+		</div>
 
 <div class="field">
 <%= f.submit "Add", :disable_with => 'Adding...' %>

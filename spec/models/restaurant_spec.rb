@@ -18,6 +18,7 @@
 #  restemail        :string(255)
 #  city             :string(255)
 #  deliveryarea     :string(255)
+#  delivers         :boolean
 #
 
 require 'spec_helper'

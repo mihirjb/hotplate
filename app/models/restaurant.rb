@@ -18,10 +18,11 @@
 #  restemail        :string(255)
 #  city             :string(255)
 #  deliveryarea     :string(255)
+#  delivers         :boolean
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :restabout, :restaddressline1, :restaddressline2, :restdelmin, :restdeltime, :restname, :restphone, :resttimingfrom, :resttiminigto, :restusername,:restemail
+  attr_accessible :restabout, :restaddressline1, :restaddressline2, :restdelmin, :restdeltime, :restname, :restphone, :resttimingfrom, :resttiminigto, :restusername,:restemail,:city,:deliveryarea,:delivers
   
   has_many :menuitems
   has_many :orderitems
