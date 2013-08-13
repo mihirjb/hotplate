@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  
+  
     before_filter :authenticate_user!, :except => ["home"]
     
     def home
@@ -33,6 +35,14 @@ class PagesController < ApplicationController
     UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
     AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
     RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+    # client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+
+        /# Create and send an SMS message
+          client.account.sms.messages.create(
+            from: TWILIO_CONFIG['from'],
+            to: "+91#{@user.userphonenumber.to_i}",
+            body: "Thanks for Ordering. Your order total is #{@orderdetails.total}. Please pay on delivery."
+          ) #/
     
   end
   

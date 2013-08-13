@@ -34,4 +34,18 @@ Hotplate::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  config.action_mailer.default_url_options = { host: "www.5ve.in" }
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "5ve.in",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["mihirjb@gmail.com"],
+      password: ENV["THINK~12vantage"]
+    }
+  
 end
