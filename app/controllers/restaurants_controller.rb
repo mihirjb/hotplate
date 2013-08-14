@@ -20,8 +20,8 @@ class RestaurantsController < ApplicationController
   end
     
   def show 
-       @restaurant = Restaurant.find(params[:id])
-       @menuitem = Menuitem.find_all_by_restaurant_id(params[:id])
+       @restaurant = Restaurant.find_by_restusername(params[:restusername])
+       @menuitem = Menuitem.find_all_by_restaurant_id(@restaurant.id)
        @uniq_itemcategories = @menuitem.uniq(&:itemcategory) 
        
        

@@ -7,7 +7,10 @@ Hotplate::Application.routes.draw do
   get "pages/thankyou"
   get "pages/userorderdetails"
   get "pages/transactionhistory"
-
+  get "pages/success"
+  get "pages/failure"
+  get "pages/searchresults"
+  
   # devise_for :admins
 
  # devise_for :admins
@@ -16,6 +19,9 @@ Hotplate::Application.routes.draw do
        resources :restaurants
        match 'menuitems/new/:id',  :to => 'menuitems#new', :as => :new_menuitem 
        match 'orders/inspect',  :to => 'orders#inspect'
+       match 'pages/orderconfirmation',  :to => 'pages#orderconfrimation', :as => :confirm_order_url 
+       match '/:restusername',  :to => 'restaurants#show'
+       
        resources :menuitems
        resources :orders
        resources :orderitems

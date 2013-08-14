@@ -1,0 +1,22 @@
+<% if !@restaurantresults.blank? %>
+<h1>Restaurants with the name <%= params[:searchquery]%> </h1>
+<ul>
+	<% @restaurantresults.each do |rs| %>
+	<li><h3><%= link_to rs.restname, "/#{rs.restusername}" %></h3></li>
+	<%end%>
+</ul>
+<%end%>
+
+
+<% if !@menuresults.blank? %>
+<h1>Dishes with the name <%= params[:searchquery]%> </h1>
+<ul>
+	
+	<% @menuresults.each do |ms| %>
+	<% @restaurantresult  = Restaurant.find(ms.restaurant_id)%>
+    
+	<li><h3><%= ms.itemname %> served by <%= link_to @restaurantresult.restname, "/#{@restaurantresult.restusername}" %></h3></li>
+	<%end%>
+
+</ul>
+<%end%>

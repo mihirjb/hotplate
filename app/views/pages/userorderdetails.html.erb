@@ -16,4 +16,25 @@
 	<tr><td>Total amount </td><td class="price"> <strong>Rs. <%= @orderdetails.total %></strong></td></tr>
 	</table>
 	</div>
-	<div class="alert alert-warning"><h3><%= @restaurantdetails.restname %> takes <%= @restaurantdetails.restdeltime %> to deliver your food to you.</h3><p>Please feel free to surf our site till then. <%= link_to "Go back", root_path, :class=>"alert-link" %></p></div>
+	<div class="alert alert-warning">
+		<div>
+			<ul class="nav nav-tabs">
+			  <li <% if !params["mode"] %> class="active" <% end %>><a href="/pages/userorderdetails">
+		Cash on Delivery
+		
+			  </a></li>
+			  <li <% if params["mode"] %> class="active" <% end %>><a href="?mode=op">Online Payment</a></li>
+			</ul>
+			<div>
+				<h4> <% if params["mode"] %>
+					<%= "You have chosen online payment please enter your details below." %>
+					<% else %>
+					
+					<%= "You have chosen cod please pay the delivery guy." %>
+					<% end %>
+					
+					</h4>
+			</div>
+			</div>
+	
+		<h3><%= @restaurantdetails.restname %> takes <%= @restaurantdetails.restdeltime %> to deliver your food to you.</h3><p>Please feel free to surf our site till then. <%= link_to "Go back", root_path, :class=>"alert-link" %></p></div>

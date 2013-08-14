@@ -1,25 +1,9 @@
+	<%= form_tag "/pages/searchresults" ,:class=>"inline-form mainpage-form", :method => 'get' do %>
+	  <p>
+		<%= text_field_tag :searchquery, "Search for restaurants, dishes, area etc", :onfocus => "$(this).val('')", :onblur => "$(this).val('Search for restaurants, dishes, area etc')",:class=>"main-search typeahead"  %>
+	    <%= submit_tag "Get Started", :name => nil, :class => "btn btn-primary btn-large" %>
+	  </p>
+	<% end %>
 
-<% if !@restaurantresults.blank? %>
-<h1>Restaurants with the name <%= params[:searchquery]%> </h1>
-<ul>
-	<% @restaurantresults.each do |rs| %>
-	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3></li>
-	<%end%>
-</ul>
-<%end%>
-
-
-<% if !@menuresults.blank? %>
-<h1>Dishes with the name <%= params[:searchquery]%> </h1>
-<ul>
-	
-	<% @menuresults.each do |ms| %>
-	<% @restaurantresult  = Restaurant.find(ms.restaurant_id)%>
-    
-	<li><h3><%= ms.itemname %> served by <%= link_to @restaurantresult.restname, "/restaurants/#{@restaurantresult.id}" %></h3></li>
-	<%end%>
-
-</ul>
-<%end%>
 
 	

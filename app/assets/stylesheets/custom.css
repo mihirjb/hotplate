@@ -90,14 +90,78 @@ tr.tableheader
 	
 }
 
-form.navbar-form input.searchqueryfield
+form.navbar-form input.searchqueryfield, form.mainpage-form input.main-search
 {
-	width:600px;
+	width:300px;
 	color:#aaa;
+	
 }
-form.navbar-form input.searchqueryfield:focus
+form.navbar-form input.searchqueryfield:focus, form.mainpage-search input.main-search:focus
 {
 	color:#000;
 	
 }
 
+form.mainpage-form
+{
+	margin:250px 0 0 ;
+}
+
+form.inline-form input.main-search
+{
+	margin:0;
+	font-size: 24px;
+	height: 24px;
+	line-height: 28px;
+	padding: 10px 6px;
+	border: 1px solid silver;
+	width: 850px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-box-shadow: 0 2px 5px 5px rgba(231, 231, 231, 0.4) inset;
+	-webkit-box-shadow: 0 2px 5px 5px rgba(231, 231, 231, 0.4) inset;
+	box-shadow: 0 2px 5px 1px rgba(231, 231, 231, 0.4) inset;
+	font-family: Helvetica,Arial,sans-serif;
+}
+
+form.mainpage-form input.btn-primary
+{
+	color: #fff;
+	background-color: #F00;
+	border: 1px solid #d90000;
+	background-image: -ms-linear-gradient(top, red, #d90000);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(red), to(#d90000));
+	background-image: -webkit-linear-gradient(top, red, #d90000);
+	background-image: -o-linear-gradient(top, red, #d90000);
+	background-image: linear-gradient(top, red, #d90000);
+	background-image: -moz-linear-gradient(top, red, #d90000);
+	-moz-box-shadow: 0 1px 4px rgba(32, 32, 32, 0.8), 0 10px 25px -5px rgba(255, 255, 255, 0.5) inset;
+	-webkit-box-shadow: 0 1px 4px rgba(32, 32, 32, 0.8), 0 10px 25px -5px rgba(255, 255, 255, 0.5) inset;
+	box-shadow: 0 1px 4px rgba(32, 32, 32, 0.8), 0 10px 25px -5px rgba(255, 255, 255, 0.5) inset;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+	font-size: 24px;
+	line-height: 28px;
+	padding: 8px 25px;
+	display: inline-block;
+}
+
+body#homepage
+{
+	background-image:url('/assets/mainbg2.jpg') !important;
+}
