@@ -30,14 +30,6 @@
 			<li><%= link_to "Sign in ", new_user_session_path %><li>
 		<% end %>
 		</ul>	
-	
-		<%= form_tag "/pages/searchresults" ,:class=>"navbar-form", :method => 'get' do %>
-		  <p>
-			<%= text_field_tag :searchquery, "Search for restaurants, dishes, area etc", :onfocus => "$(this).val('')", :onblur => "$(this).val('Search for restaurants, dishes, area etc')",:class=>"searchqueryfield typeahead"  %>
-		    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
-		  </p>
-		<% end %>
-		
 		</div>
 		</div>
 		</header>
