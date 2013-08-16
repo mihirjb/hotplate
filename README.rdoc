@@ -8,4 +8,4 @@ TO DO
 *************************
 1. Pass the special instructions to order.
 2. Have a little description for some complex menu item and show it modal window.
-3. Guest user unable to create review even after signing in. Has to start over. Fix it.
+3. Guest user unable to create review even after signing in. Has to start over. Fix it. 
