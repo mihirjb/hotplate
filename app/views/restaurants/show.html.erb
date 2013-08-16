@@ -153,11 +153,11 @@ $('.myTable').append("<tr>" +
 	
 <div class="col-6 col-lg-6">
 	<div class="hotel-info alert alert-success">
-		<p><%= @restaurant.restaddressline1 %><br/><%= @restaurant.restaddressline2 %><br/> Phone: <%= @restaurant.restphone %> </p>
+		<p><%= @restaurant.raddress %><br/> Phone: <%= @restaurant.restphone %> </p>
 	
 		<p>Minimum Delivery charges: <%= @restaurant.restdelmin %> Rupees</p>
 		<p>Minimum Delivery time: <%= @restaurant.restdeltime %></p>
-		<p>Timings: <%= "#{@restaurant.resttimingfrom}  am"  %> to <%= "#{@restaurant.resttiminigto}  pm"%></p>
+		<p>Timings: <%= "#{@restaurant.rtimings}"  %> </p>
 		</div>
 		<div class="order-bucket">
 				<form action="show_submit" method="get" accept-charset="utf-8" class="hidden">
