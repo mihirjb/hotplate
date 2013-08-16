@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816123735) do
+ActiveRecord::Schema.define(:version => 20130816132444) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -89,22 +89,23 @@ ActiveRecord::Schema.define(:version => 20130816123735) do
   create_table "restaurants", :force => true do |t|
     t.string   "restusername"
     t.string   "restname"
-    t.string   "restaddressline1"
-    t.string   "restaddressline2"
     t.integer  "restphone"
     t.time     "resttimingfrom"
-    t.time     "resttiminigto"
     t.string   "restdeltime"
     t.string   "restdelmin"
     t.text     "restabout"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "restemail"
     t.string   "city"
     t.string   "deliveryarea"
     t.boolean  "delivers"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "raddress"
+    t.string   "rtimings"
+    t.integer  "rdelradius"
+    t.string   "rarea"
   end
 
   create_table "reviews", :force => true do |t|
