@@ -24,7 +24,7 @@
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude
+  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude
   
   has_many :menuitems
   has_many :orderitems

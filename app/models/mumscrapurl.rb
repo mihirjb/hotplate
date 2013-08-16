@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: mumscrapurls
+#
+#  id         :integer          not null, primary key
+#  tkurl      :string(255)
+#  zurl       :string(255)
+#  status     :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Mumscrapurl < ActiveRecord::Base
   attr_accessible :status, :tkurl, :zurl
   
