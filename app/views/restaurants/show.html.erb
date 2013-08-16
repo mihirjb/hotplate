@@ -1,4 +1,8 @@
-<h1 class="page-header"><%= @restaurant.restname %></h1>
+<h1 class="page-header">
+<%= @restaurant.restname %>
+	<% if user_signed_in? %>
+	<%= 	@restaurant.distance_to([current_user.latitude, current_user.longitude]) %><% end %>
+	</h1>
 <% if admin_signed_in? %>
 <%= link_to "Add new menu item",  new_menuitem_path %>
 <%end%>
@@ -12,26 +16,22 @@
     </fieldset>
     </form>
 	
-</div><div class="row">
-<div class="col-6 col-lg-6">
-<% @uniq_itemcategories.each do |u| %>
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<%= Menuitem.find_by_itemcategory(u.itemcategory).id %>">
-		<h3><%= u.itemcategory %></h3>
-      </a>
-    </div>
-    
-<%@menuitem1 = Menuitem.find_all_by_itemcategory(u.itemcategory)%>
-<form action="show_submit" method="get" accept-charset="utf-8">
-	<div id="collapseOne<%= Menuitem.find_by_itemcategory(u.itemcategory).id %>" class="accordion-body collapse in">
-      <div class="accordion-inner">
-	<table class="table table-condensed menu table-hover">
-		<tbody>
-		<% @menuitem1.each do |i|%>
-		
-		<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>
+</div>
+<div class="row">
+	<div class="col-6 col-lg-6">
+	<% @uniq_itemcategories.each do |u| %>
+	
+										<h3><%= u.itemcategory %></h3>
+      				
+						<%@menuitem1 = @restaurant.menuitems.find_all_by_itemcategory(u.itemcategory)%>
+						<form action="show_submit" method="get" accept-charset="utf-8">
+									<table class="table table-condensed menu table-hover">
+										<% @menuitem1.each do |i|%>
+										<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>										
+										
+										
+										
+										
 			<script>
 			var itemclass;
 			var total = 0;
@@ -141,21 +141,12 @@ $('.myTable').append("<tr>" +
 				
 			
 			</script>
+			<% end %>
+		</table>	
 		<% end %>
-		</tbody>
-		</table>
-		</div>
-	</div>
-</div>
-		<% end %>
-	
-		</div>
-		</div>
-		</div>
-		
 	</div>
 	
-
+	
 <div class="col-6 col-lg-6">
 	<div class="hotel-info alert alert-success">
 		<p><%= @restaurant.restaddressline1 %><br/><%= @restaurant.restaddressline2 %><br/> Phone: <%= @restaurant.restphone %> </p>
@@ -226,4 +217,33 @@ $('.myTable').append("<tr>" +
 		
 		</div>
 		</div>
-	
+<% @review.each do |r| %>
+			<div>
+				<p><%= r.title %></p>
+				<p><%= r.reviewtext %></p>
+				</div>
+				<% end %>
+					<div>
+
+						<%= form_for :reviews, :url=> "/reviews" do |ff| %>
+						
+							<div class="field">
+								<%= ff.label :title, "Review Title" %>
+								<%= ff.text_field :title %>
+							</div>  
+
+								<div class="field">
+									<%= ff.label :reviewtext, "Review" %>
+									<%= ff.text_field :reviewtext %>
+								</div>
+								
+								<%= hidden_field_tag :restaurant_id, @restaurant.id %>
+								
+									<div class="field">
+									<%= ff.submit "Add Review", :disable_with => 'Adding...', :class =>"btn btn-success" %>
+									</div>
+						<% end %>
+
+						</div>
+			
+				

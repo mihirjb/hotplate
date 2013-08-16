@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813083032) do
+ActiveRecord::Schema.define(:version => 20130816064536) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(:version => 20130813083032) do
     t.string   "city"
     t.string   "deliveryarea"
     t.boolean  "delivers"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.string   "title"
+    t.text     "reviewtext"
+    t.string   "author"
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -97,6 +109,9 @@ ActiveRecord::Schema.define(:version => 20130813083032) do
     t.string   "userfullname"
     t.decimal  "userphonenumber"
     t.string   "useraddress"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "city"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

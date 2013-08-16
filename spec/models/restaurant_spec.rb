@@ -19,6 +19,8 @@
 #  city             :string(255)
 #  deliveryarea     :string(255)
 #  delivers         :boolean
+#  latitude         :float
+#  longitude        :float
 #
 
 require 'spec_helper'

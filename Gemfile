@@ -12,6 +12,7 @@ gem 'rake', '10.1'
 gem 'will_paginate', '~> 3.0'
 gem 'roadie'
 gem 'twilio-ruby'
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.

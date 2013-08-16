@@ -20,5 +20,15 @@ class Order < ActiveRecord::Base
   has_many :orderitems
   belongs_to :restaurant
   belongs_to :users
+    
+  validates_presence_of :custoemrnumber
+  validates_presence_of :customeraddress
+  validates_presence_of :customername
+  validates_presence_of :user_id
+  validates_presence_of :restaurant_id
+  validates_presence_of :customeremail
+  validates_presence_of :total
+ 
+  
   
 end

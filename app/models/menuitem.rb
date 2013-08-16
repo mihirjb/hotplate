@@ -14,4 +14,10 @@
 class Menuitem < ActiveRecord::Base
   attr_accessible :itemcategory, :itemname, :itemunitprice, :restaurant_id
   belongs_to :restaurant
+  
+  validates_presence_of :itemname
+  validates_presence_of :itemunitprice
+  validates_presence_of :itemcategory
+  validates_presence_of :restaurant_id
+  
 end

@@ -19,14 +19,42 @@
 #  city             :string(255)
 #  deliveryarea     :string(255)
 #  delivers         :boolean
+#  latitude         :float
+#  longitude        :float
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :restabout, :restaddressline1, :restaddressline2, :restdelmin, :restdeltime, :restname, :restphone, :resttimingfrom, :resttiminigto, :restusername,:restemail,:city,:deliveryarea,:delivers
+  attr_accessible :restabout, :restaddressline1, :restaddressline2, :restdelmin, :restdeltime, :restname, :restphone, :resttimingfrom, :resttiminigto, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude
   
   has_many :menuitems
   has_many :orderitems
   has_many :orders
+  has_many :reviews
+  
+  geocoded_by :restaddress                # can also be an IP address
+  after_validation :geocode               # auto-fetch coordinates
+  
+  
+  validates_presence_of :restabout
+  validates_presence_of :restaddressline1	
+  validates_presence_of :restaddresline2
+  validates_presence_of :restdelmin
+  validates_presence_of :restdeltime
+  validates_presence_of :restname
+  validates_presence_of :restphone	
+  validates_presence_of :resttimingfrom
+  validates_presence_of :resttimingto
+  validates_presence_of :restemail
+  validates_presence_of :restphone	
+  validates_presence_of :city
+  validates_presence_of :deliveryarea
+  validates_presence_of :delivers
+  validates :restusername, :presence =>true, :uniqueness =>true
+
+    def restaddress
+      [restaddressline1, restaddressline2, city].compact.join(', ')
+    end
+    
   
   
 end

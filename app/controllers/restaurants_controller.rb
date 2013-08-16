@@ -7,11 +7,11 @@ class RestaurantsController < ApplicationController
   end
   
   def new 
-    @restaurant = Restaurant.new(params[:restaurant])
+    @restaurant = Restaurant.new(params[:id])
   end
   
   def create
-    @restaurant = Restaurant.new(params[:restaurant])
+    @restaurant = Restaurant.new(params[:id])
     if @restaurant.save
       redirect_to root_path, :notice => "Restaurant added sucessfully."
     else
@@ -20,10 +20,10 @@ class RestaurantsController < ApplicationController
   end
     
   def show 
-       @restaurant = Restaurant.find_by_restusername(params[:restusername])
+       @restaurant = Restaurant.find(params[:id])
        @menuitem = Menuitem.find_all_by_restaurant_id(@restaurant.id)
        @uniq_itemcategories = @menuitem.uniq(&:itemcategory) 
-       
+       @review = Review.find_all_by_restaurant_id(params[:id]) 
        
   end
 

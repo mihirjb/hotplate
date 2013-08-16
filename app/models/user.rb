@@ -18,6 +18,9 @@
 #  userfullname           :string(255)
 #  userphonenumber        :decimal(, )
 #  useraddress            :string(255)
+#  latitude               :float
+#  longitude              :float
+#  city                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -27,9 +30,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :userfullname, :userphonenumber, :useraddress,:id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :userfullname, :userphonenumber, :useraddress,:id,:latitude, :longitude, :city
   # attr_accessible :title, :body
   
   has_many :orders
+  has_many :reviews
+  
+  geocoded_by :useraddress                # can also be an IP address
+   after_validation :geocode              # auto-fetch coordinates
+   
+   valid_email_format = /[\w+\-.]+@[a-z\-.]+\.[a-z]+/i
+
+   validates_presence_of :name
+   validates_length_of :name, :maximum => 50
+   validates :email, :presence => true,:format => valid_email_format, :uniqueness => true
+   validates_length_of :password,:in => 6..40
+   validates :password, :confirmation  => true
+  
   
 end

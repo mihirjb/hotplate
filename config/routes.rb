@@ -20,11 +20,11 @@ Hotplate::Application.routes.draw do
        match 'menuitems/new/:id',  :to => 'menuitems#new', :as => :new_menuitem 
        match 'orders/inspect',  :to => 'orders#inspect'
        match 'pages/orderconfirmation',  :to => 'pages#orderconfrimation', :as => :confirm_order_url 
-       match '/:restusername',  :to => 'restaurants#show'
        
        resources :menuitems
        resources :orders
        resources :orderitems
+       resources :reviews
        
        devise_for :admins, :controllers => { :registrations => "admins/registrations" }
   

@@ -18,4 +18,11 @@ class Orderitem < ActiveRecord::Base
   belongs_to :order
   belongs_to :restaurant
   
+  validates_presence_of :itemname
+  validates_presence_of :itemprice
+  validates_presence_of :quantity
+  validates_presence_of :order_id
+  validates_presence_of :restaurant_id
+  
+  
 end

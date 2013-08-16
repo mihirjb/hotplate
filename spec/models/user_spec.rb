@@ -18,6 +18,9 @@
 #  userfullname           :string(255)
 #  userphonenumber        :decimal(, )
 #  useraddress            :string(255)
+#  latitude               :float
+#  longitude              :float
+#  city                   :string(255)
 #
 
 require 'spec_helper'
