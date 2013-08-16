@@ -161,7 +161,35 @@ form.mainpage-form input.btn-primary
 	display: inline-block;
 }
 
-body#homepage
+body#homepage header
 {
+	height:680px;
 	background-image:url('/assets/mainbg2.jpg') !important;
+}
+
+footer
+{
+	min-height:300px;
+	background-color:#fff;
+}
+table.menu 
+{
+
+	width:75%;
+}
+
+table.menu tr td
+{
+	font-size:12px;
+	font-weight:bold;
+}
+h3.menucategory
+{
+	font-size:16px;
+	margin-bottom:0;
+}
+div.menucontainer
+{
+	height:350px;
+	overflow:auto;
 }

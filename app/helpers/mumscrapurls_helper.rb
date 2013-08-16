@@ -1,0 +1,2 @@
+module MumscrapurlsHelper
+end

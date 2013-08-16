@@ -1,0 +1,27 @@
+<h1>Listing blorescrapurls</h1>
+
+<table>
+  <tr>
+    <th>Tkurl</th>
+    <th>Zurl</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blorescrapurls.each do |blorescrapurl| %>
+  <tr>
+    <td><%= blorescrapurl.tkurl %></td>
+    <td><%= blorescrapurl.zurl %></td>
+    <td><%= blorescrapurl.status %></td>
+    <td><%= link_to 'Show', blorescrapurl %></td>
+    <td><%= link_to 'Edit', edit_blorescrapurl_path(blorescrapurl) %></td>
+    <td><%= link_to 'Destroy', blorescrapurl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Blorescrapurl', new_blorescrapurl_path %>

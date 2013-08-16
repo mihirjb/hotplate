@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816064536) do
+ActiveRecord::Schema.define(:version => 20130816123735) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(:version => 20130816064536) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
+  create_table "blorescrapurls", :force => true do |t|
+    t.string   "tkurl"
+    t.string   "zurl"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "menuitems", :force => true do |t|
     t.string   "itemname"
     t.decimal  "itemunitprice"
@@ -38,6 +46,14 @@ ActiveRecord::Schema.define(:version => 20130816064536) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "restaurant_id"
+  end
+
+  create_table "mumscrapurls", :force => true do |t|
+    t.string   "tkurl"
+    t.string   "zurl"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "orderitems", :force => true do |t|
@@ -60,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20130816064536) do
     t.integer  "total"
     t.string   "customeremail"
     t.integer  "user_id"
+  end
+
+  create_table "punescrapurls", :force => true do |t|
+    t.string   "tkurl"
+    t.string   "zurl"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "restaurants", :force => true do |t|

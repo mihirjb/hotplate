@@ -1,6 +1,15 @@
 Hotplate::Application.routes.draw do
 
 
+  resources :mumscrapurls
+
+
+  resources :blorescrapurls
+
+
+  resources :punescrapurls
+
+
   devise_for :admins
 
   devise_for :users

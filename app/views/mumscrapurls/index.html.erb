@@ -1,0 +1,27 @@
+<h1>Listing mumscrapurls</h1>
+
+<table>
+  <tr>
+    <th>Tkurl</th>
+    <th>Zurl</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mumscrapurls.each do |mumscrapurl| %>
+  <tr>
+    <td><%= mumscrapurl.tkurl %></td>
+    <td><%= mumscrapurl.zurl %></td>
+    <td><%= mumscrapurl.status %></td>
+    <td><%= link_to 'Show', mumscrapurl %></td>
+    <td><%= link_to 'Edit', edit_mumscrapurl_path(mumscrapurl) %></td>
+    <td><%= link_to 'Destroy', mumscrapurl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mumscrapurl', new_mumscrapurl_path %>

@@ -19,13 +19,15 @@
 </div>
 <div class="row">
 	<div class="col-6 col-lg-6">
+		<div class="menucontainer">
 	<% @uniq_itemcategories.each do |u| %>
-	
-										<h3><%= u.itemcategory %></h3>
       				
 						<%@menuitem1 = @restaurant.menuitems.find_all_by_itemcategory(u.itemcategory)%>
+						
 						<form action="show_submit" method="get" accept-charset="utf-8">
 									<table class="table table-condensed menu table-hover">
+										<h3 class="menucategory"><%= u.itemcategory %></h3>
+										
 										<% @menuitem1.each do |i|%>
 										<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>										
 										
@@ -141,9 +143,11 @@ $('.myTable').append("<tr>" +
 				
 			
 			</script>
+			
 			<% end %>
 		</table>	
 		<% end %>
+		</div>
 	</div>
 	
 	

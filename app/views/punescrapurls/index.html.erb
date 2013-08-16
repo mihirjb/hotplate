@@ -1,0 +1,27 @@
+<h1>Listing punescrapurls</h1>
+
+<table>
+  <tr>
+    <th>Tkurl</th>
+    <th>Zurl</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @punescrapurls.each do |punescrapurl| %>
+  <tr>
+    <td><%= punescrapurl.tkurl %></td>
+    <td><%= punescrapurl.zurl %></td>
+    <td><%= punescrapurl.status %></td>
+    <td><%= link_to 'Show', punescrapurl %></td>
+    <td><%= link_to 'Edit', edit_punescrapurl_path(punescrapurl) %></td>
+    <td><%= link_to 'Destroy', punescrapurl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Punescrapurl', new_punescrapurl_path %>

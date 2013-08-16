@@ -1,0 +1,29 @@
+<%= form_for(@punescrapurl) do |f| %>
+  <% if @punescrapurl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@punescrapurl.errors.count, "error") %> prohibited this punescrapurl from being saved:</h2>
+
+      <ul>
+      <% @punescrapurl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tkurl %><br />
+    <%= f.text_field :tkurl %>
+  </div>
+  <div class="field">
+    <%= f.label :zurl %><br />
+    <%= f.text_field :zurl %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

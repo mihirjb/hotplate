@@ -1,0 +1,29 @@
+<%= form_for(@blorescrapurl) do |f| %>
+  <% if @blorescrapurl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blorescrapurl.errors.count, "error") %> prohibited this blorescrapurl from being saved:</h2>
+
+      <ul>
+      <% @blorescrapurl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tkurl %><br />
+    <%= f.text_field :tkurl %>
+  </div>
+  <div class="field">
+    <%= f.label :zurl %><br />
+    <%= f.text_field :zurl %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
