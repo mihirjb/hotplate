@@ -10,15 +10,10 @@
 </div>  
 
 <div class="field">
-	<%= f.label :restaddressline1, "Address Line 1" %>
-	<%= f.text_field :restaddressline1 %>
+	<%= f.label :raddress, "Address Line 1" %>
+	<%= f.text_field :raddress %>
 </div>
 
-
-<div class="field">
-	<%= f.label :restaddressline2, "Address Line 2" %>
-	<%= f.text_field :restaddressline2 %>
-</div>
 
 <div class="field">
 	<%= f.label :restphone, "Phonenumber" %>
@@ -35,17 +30,17 @@
 
 <div class="field">
 		<%= f.label :delivers, "Does the restaurant home deliver" %>
-<%= f.select :delivers, [["#{@restaurant.delivers}","#{@restaurant.delivers}"],['Yes','TRUE'],['No','FALSE']]%>
+<%= f.select :delivers, [['Yes','True'],['No','False']]%>
 </div>
 
 <div class="field">
-	<%= f.label :resttimingfrom , "Open from" %>
-	<%= f.text_field :resttimingfrom %> 
+	<%= f.label :rdelradius , "Delivery Radius" %>
+	<%= f.text_field :rdelradius %> 
 </div>
 
 <div class="field">
-	<%= f.label :resttiminigto, "Open to" %>
-	<%= f.text_field :resttiminigto %>
+	<%= f.label :rtimings, "Timings" %>
+	<%= f.text_field :rtiming %>
 </div>
 
 <div class="field">
@@ -57,6 +52,11 @@
 	<%= f.label :restdelmin, "Minimum delivery order" %>
 	<%= f.text_field :restdelmin %>
 </div>	
+
+<div class="field">
+	<%= f.label :rarea, "Area of the restaurant" %>
+	<%= f.text_field :rarea %>
+</div>
 <div class="field">
 		<%= f.label :restabout, "More about the restaurant" %>
 		<%=  f.text_area :restabout %>

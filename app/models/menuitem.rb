@@ -9,6 +9,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  restaurant_id :integer
+#  itemdesc      :string(255)
 #
 
 class Menuitem < ActiveRecord::Base
