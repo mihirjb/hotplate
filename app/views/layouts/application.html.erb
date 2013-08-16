@@ -20,6 +20,9 @@
 				<ul class="nav">
 						<% if admin_signed_in? %>
 					<li><%= link_to "Sign out", destroy_admin_session_path, :method => 'delete' %></li>
+					<li><%= link_to "Add PuneURLs", "/punescrapurls/new" %></li>
+					<li><%= link_to "Add MumbaiURLs", "/mumscrapurls/new" %></li>
+					<li><%= link_to "Add BangaloreURLs", "/blorescrapurls/new" %></li>
 						<% end %>
 				<% if user_signed_in? %>
 				<li><%= link_to "Home", root_path %></li>
