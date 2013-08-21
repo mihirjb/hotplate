@@ -24,11 +24,7 @@ class RestaurantsController < ApplicationController
        @menuitem = Menuitem.find_all_by_restaurant_id(@restaurant.id)
        @uniq_itemcategories = @menuitem.uniq(&:itemcategory) 
        @review = Review.find_all_by_restaurant_id(params[:id]) 
-          @json = @restaurant.to_gmaps4rails do |restaurant, marker|
-           marker.infowindow render_to_string(:partial => "/restaurants/infowindow", :locals => { :restaurant => restaurant})
-             marker.title "#{restaurant.restname}"
-             marker.json({ :deliveryminimum => restaurant.restdelmin})
-           end
+      
   end
 
   def edit
