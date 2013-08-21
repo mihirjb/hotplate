@@ -10,6 +10,14 @@ class PagesController < ApplicationController
     end
     
     def searchresults
+      @user = User.find(14)
+    @restaurants =  Restaurant.near([@user.latitude, @user.longitude], 1, :units => :km)
+    # @restaurants = Restaurant.all
+       @json = @restaurants.to_gmaps4rails do |restaurant, marker|
+        marker.infowindow render_to_string(:partial => "/restaurants/infowindow", :locals => { :restaurant => restaurant})
+          marker.title "#{restaurant.restname}"
+          marker.json({ :deliveryminimum => restaurant.restdelmin})
+        end
         if params[:searchquery]
            if params[:searchquery].blank?
              @msg = "Either of the fields cannot be blank, please input correct values and try again"

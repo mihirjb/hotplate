@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   
   has_many :orders
   has_many :reviews
+  acts_as_gmappable :process_geocoding => false
   
   geocoded_by :useraddress                # can also be an IP address
    after_validation :geocode              # auto-fetch coordinates
