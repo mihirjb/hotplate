@@ -14,8 +14,8 @@ class PagesController < ApplicationController
            if params[:searchquery].blank?
              @msg = "Either of the fields cannot be blank, please input correct values and try again"
            else
-             @restaurantresults = Restaurant.find(:all, :conditions => ['restname LIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
-             @menuresults = Menuitem.find(:all, :conditions => ['itemname LIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
+             @restaurantresults = Restaurant.find(:all, :conditions => ['restname iLIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
+             @menuresults = Menuitem.find(:all, :conditions => ['itemname iLIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
            #  @restaurantresults = Restaurant.find_by_restname(params[:searchquery])
              @msg = "Showing search results for #{params[:searchquery]}"
            end
