@@ -1,12 +1,14 @@
 --- 
+NeuzeitGroT_Bold.ttf: NeuzeitGroT_Bold-329ee09024e894f8ca589d9cb3faf9c2.ttf
+NeuzeitGroT_Bold/index.ttf: NeuzeitGroT_Bold-329ee09024e894f8ca589d9cb3faf9c2.ttf
 mainbg.jpg: mainbg-dabdb8df6e7cbcdd945119c18bce7c8b.jpg
 mainbg/index.jpg: mainbg-dabdb8df6e7cbcdd945119c18bce7c8b.jpg
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-f4e4cd49aa1c41622de2c55c435a66dc.js
-application/index.js: application-f4e4cd49aa1c41622de2c55c435a66dc.js
-application.css: application-1590fd0d7eb7235c9135d6d9d295a308.css
-application/index.css: application-1590fd0d7eb7235c9135d6d9d295a308.css
+application.js: application-19751e2dc2c0e9746e6ec84e2246863b.js
+application/index.js: application-19751e2dc2c0e9746e6ec84e2246863b.js
+application.css: application-b088e03ba4d1f9837918c5de9b23d843.css
+application/index.css: application-b088e03ba4d1f9837918c5de9b23d843.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
