@@ -1,4 +1,23 @@
+<section class="form-gray">
+		<div class="container">
+			<%= form_tag "/pages/searchresults" ,:class=>"inline-form mainpage-form", :method => 'get' do %>
+				  <p>
+					<%= text_field_tag :searchquery, "Search for restaurants, dishes, area etc", :onfocus => "$(this).val('')", :onblur => "$(this).val('Search for restaurants, dishes, area etc')",:class=>"main-search typeahead"  %>
+				    <%= submit_tag "Get Started", :name => nil, :class => "btn btn-primary btn-large" %>
+				  </p>
+				<% end %>
 
+		</div>
+		</section>
+<section id="main">
+	<div class="container">
+<h1 class="main-page-intro">{ Our favorites of the week }</h1>
+<ul class="favorites">
+	<li class="favorites-listitem"><img class="favorites-listimg" src="/assets/favs1.jpg" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li>
+	<li class="favorites-listitem"><img class="favorites-listimg" src="/assets/favs2.jpg" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="/assets/favs3.jpg" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li><li class="favorites-listitem"><img class="favorites-listimg" src="" alt="" title="" /><h2 class="fav-list-heading"></h2><p class="fav-list-desc"></p></li>
+	</ul>
+</div>
+</section>
 
 
 	

@@ -8,6 +8,7 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
 	
 	
   <%= csrf_meta_tags %>
@@ -17,6 +18,7 @@
 		<div class="navbar navbar-inverse">
 			<div class="navbar-inner">
 				<ul class="nav">
+					<li class="sitename"><%= link_to "Foodzoo",root_path %></li>
 					<% if admin_signed_in? %>
 				<li><%= link_to "Sign out", destroy_admin_session_path, :method => 'delete' %></li>
 				<li><%= link_to "Add PuneURLs", "/punescrapurls/new" %></li>
@@ -31,32 +33,48 @@
 			<li></li>  
 			<li style= "float:right"><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
 			<% else %>
-			<li><%= link_to "Home", root_path %></li>
 			<li><%= link_to "Sign in ", new_user_session_path %><li>
 		<% end %>
 		</ul>	
 		</div>
 		</div>
-		<div class="container">
-			<%= form_tag "/pages/searchresults" ,:class=>"inline-form mainpage-form", :method => 'get' do %>
-				  <p>
-					<%= text_field_tag :searchquery, "Search for restaurants, dishes, area etc", :onfocus => "$(this).val('')", :onblur => "$(this).val('Search for restaurants, dishes, area etc')",:class=>"main-search typeahead"  %>
-				    <%= submit_tag "Get Started", :name => nil, :class => "btn btn-primary btn-large" %>
-				  </p>
-				<% end %>
-			
-		</div>
+	
 		</header>
-<section>	
-<div class="container">
+		<section>
+			<div id="slider" class="nivoSlider">
+			            <div>
+			                            <img src="/assets/slide4.jpg" alt="image06"/>
+			                 </div><div>         
+
+			                           <img src="/assets/slide2.jpg" alt="image01" />
+			                            </div><div>
+
+			<img src="/assets/slide3.jpg" alt="image02" />
+			                           </div>     
+										<div>
+
+			<img src="/assets/slide1.jpg" alt="image02" />
+			                          </div> 
+			</div>
+		
+</section>	
 <%= yield %>
-</div>
-</section>
-<section>
-</section>
 <footer>
 </footer>
 </body>
 </html>
+<script language="javascript">
+$("#slider > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slider > div:first')
+    .fadeOut(2500)
+    .next()
+    .fadeIn(2500)
+    .end()
+    .appendTo('#slider');
+},  5000);
+</script>
+
 
 
