@@ -2,14 +2,15 @@
 #
 # Table name: orderitems
 #
-#  id            :integer          not null, primary key
-#  itemname      :string(255)
-#  quantity      :integer
-#  itemprice     :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  restaurant_id :integer
-#  order_id      :integer
+#  id                 :integer          not null, primary key
+#  itemname           :string(255)
+#  quantity           :integer
+#  itemprice          :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  restaurant_id      :integer
+#  order_id           :integer
+#  specialinstruction :text
 #
 
 require 'spec_helper'

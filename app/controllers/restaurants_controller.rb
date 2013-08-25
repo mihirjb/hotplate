@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
        @restaurant = Restaurant.find(params[:id])
        @menuitem = Menuitem.find_all_by_restaurant_id(@restaurant.id)
        @uniq_itemcategories = @menuitem.uniq(&:itemcategory) 
-       @review = Review.find_all_by_restaurant_id(params[:id]) 
+       @review = Review.find_all_by_restaurant_id(params[:id])
       
   end
 

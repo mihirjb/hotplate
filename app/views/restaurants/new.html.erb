@@ -29,9 +29,14 @@
 </div>
 
 <div class="field">
-		<%= f.label :delivers, "Does the restaurant home deliver" %>
-<%= f.select :delivers, [['Yes','True'],['No','False']]%>
+		<%= f.label :delivers, "Does the restaurant home deliver?" %>
+<%= f.select :delivers, [['Yes','true'],['No','false']]%>
 </div>
+<div class="field">
+	<%= f.label :rcost , "Cost for 2 people" %>
+	<%= f.text_field :rcost %> 
+</div>
+
 
 <div class="field">
 	<%= f.label :rdelradius , "Delivery Radius" %>

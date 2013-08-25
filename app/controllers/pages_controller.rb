@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     
     def home
       @restaurant = Restaurant.all 
+      @uniqcities = @restaurant.uniq(&:city) 
       
     end
     
@@ -14,13 +15,19 @@ class PagesController < ApplicationController
            if params[:searchquery].blank?
              @msg = "Either of the fields cannot be blank, please input correct values and try again"
            else
-             @restaurantresults = Restaurant.find(:all, :conditions => ['restname iLIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
-             @menuresults = Menuitem.find(:all, :conditions => ['itemname iLIKE ?', "%#{params[:searchquery]}%"], :order => "RANDOM()")
+             @restcity = Restaurant.find(params[:cities])
+             @restaurantresults = Restaurant.find(:all, :conditions => ['restname LIKE ? AND city LIKE ?', "%#{params[:searchquery]}%", @restcity.city], :order => "RANDOM()")
+             @menuresults = Menuitem.find(:all, :conditions => ['itemname LIKE ?', "%#{params[:searchquery]}%"])
+             @itemcategory = Menuitem.find(:all, :conditions => ['itemcategory LIKE ?', "%#{params[:searchquery]}%"])
+             @restarearesults = Restaurant.find(:all, :conditions => ['rarea LIKE ? AND city LIKE ?', "%#{params[:searchquery]}%", @restcity.city], :order => "RANDOM()")
            #  @restaurantresults = Restaurant.find_by_restname(params[:searchquery])
-             @msg = "Showing search results for #{params[:searchquery]}"
+           
+           
            end
        end
-  
+       respond_to do |format|
+       format.html {render :layout => 'searchresults'}
+      end 
     end
     
   def thankyou

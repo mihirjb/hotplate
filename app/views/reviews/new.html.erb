@@ -1,4 +1,8 @@
 	<%= form_for :review, :url => "/reviews" do |ff| -%>
+	<div class="field">
+			<%= ff.label :score, "Review score out of 5" %>
+	<%= ff.select :score, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']]%>
+	</div>
 
 		<div class="field">
 			<%= ff.label :title, "Review Title" %>
@@ -9,6 +13,7 @@
 				<%= ff.label :reviewtext, "Review" %>
 				<%= ff.text_field :reviewtext %>
 			</div>
+			
 				<div class="field">
 				<%= ff.submit "Add Review", :disable_with => 'Adding...', :class =>"btn btn-success" %>
 				</div>

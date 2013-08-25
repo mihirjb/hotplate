@@ -1,0 +1,192 @@
+section#main
+{
+	background-color:#efeee9;
+	overflow:auto;
+}
+section#main section#hero .jumbotron
+{
+	margin-bottom:0;
+}
+section#main section#hero .jumbotron h1
+{
+	padding-top:0px;
+}
+section#content 
+{
+	width:80%;
+	background-color:#fff;
+	margin:4% auto;
+	-moz-box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	-webkit-box-shadow:rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+}
+section#content .top-bar
+{
+	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
+    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
+padding:60px 0;
+margin:0;
+border:none;
+}
+
+section#content .top-bar ul li.selectcat
+{
+	font-size:14px;
+	font-weight:bold;
+	margin-left:10px;
+	margin-top:-4px;
+	color:#CB202D;
+}
+section#content .top-bar ul li.selectcat select.city
+{
+	font-size:14px;
+	color:#383838;
+}
+section#main section#hero
+{
+	border:none;
+	width:80%;
+	margin:0 auto;
+
+}
+
+
+section#content div#menu
+{
+	margin:0 1%;
+}
+
+
+
+div.order-bucket
+{
+}
+div.menucontainer
+{
+	width:100%;
+	overflow:auto;
+	margin:4% auto;
+}
+div.menucontainer h3.menucategory
+{
+background-color:#fff;
+width:97%;
+margin:0 auto;
+color: #4383c5;
+}
+div.menucontainer table tr
+{
+	margin:0 4%;
+	width:42%;
+}
+div.menucontainer table td
+{
+	font-family:'Lucida-Grande', sans-serif;
+	font-weight:bold;
+	color:#383838;
+	font-size:14px !important;
+	text-rendering: optimizeLegibility;
+}
+.jumbotron 
+{
+	padding:0;
+}
+.jumbotron div.left
+{
+	float:left;
+	width:48%;
+	margin-top:120px;
+}
+
+.jumbotron div.right
+{
+	float:right;
+	width:48%;
+	margin-top:130px;
+	overflow:auto;
+}
+.jumbotron div.left p.badge
+{
+	font-family:'Lucida-Grande', sans-serif;
+	font-size:14px;
+	float:none;
+	display:block;
+	background-color:#efeee9;
+	margin-bottom:5px;
+	color:#585858;
+}
+.jumbotron div.left p.badge strong
+{
+	color:#8B0000;
+}
+.jumbotron div.right p.badge
+{
+	float:right;
+}
+p.reviewscore
+{
+	font-size:60px;
+	background-color:#4383c5;
+	color:#fff;
+	line-height:60px;
+	padding:20px;
+	width:110px;
+	height:110px;
+	float:right;
+	background-color: #006ccc;
+	background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+	background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+	background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0088CC', endColorstr='#FF0044CC', GradientType=0);
+	border-color: #0044cc #0044cc #002a80;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
+	-moz-box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	-webkit-box-shadow:rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+}
+
+p.reviewscore span.small
+{
+	font-size:18px;
+}
+
+
+section#hero div.container,section#content div.container
+{
+	width:100%;
+}
+
+div.review-form
+{
+	margin:5%;
+	width:90%;
+}
+div.review-form input.btn
+{
+	margin:0 48px 50px 0px;
+}
+
+.hotel-info div.left
+{
+	width:48%;
+}
+.hotel-info div.left p.badge
+{
+	font-family:'Lucida-Grande', sans-serif;
+	font-size:14px;
+	float:none;
+	display:block;
+	background-color:#fff;
+	margin-bottom:5px;
+	color:#585858;
+}
+.hotel-info div.left p.badge strong
+{
+	color:#8B0000;
+}

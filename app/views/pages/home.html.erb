@@ -2,14 +2,16 @@
 		<div class="container">
 			<%= form_tag "/pages/searchresults" ,:class=>"inline-form mainpage-form", :method => 'get' do %>
 				  <p>
-					<%= text_field_tag :searchquery, "Search for restaurants, dishes, area etc", :onfocus => "$(this).val('')", :onblur => "$(this).val('Search for restaurants, dishes, area etc')",:class=>"main-search typeahead"  %>
+					<%= text_field_tag :searchquery, "Search restaurants by name, area, cuisine and menu items", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items';}",:class=>"main-search typeahead"  %>
+					in <%=	select_tag "cities", options_from_collection_for_select(@uniqcities, "id", "city"),:class => "city" %>
+					
 				    <%= submit_tag "Get Started", :name => nil, :class => "btn btn-primary btn-large" %>
 				  </p>
 				<% end %>
 
 		</div>
 		</section>
-<section id="main">
+<section id="main-page">
 	<div class="container">
 <h1 class="main-page-intro">{ Our favorites of the week }</h1>
 <ul class="favorites">

@@ -22,7 +22,16 @@ body div.container form input
 	font-size:16px;
 	border: 1px solid #b8b5b3;
 }
-
+body div.container form input.btn
+{
+	height:40px;
+	width:auto;
+	color:#fff;
+}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'NeuzeitGroT_Bold','Arvo',"Helvetica Neue", "Helvetica", "Calibri", Arial, sans-serif;
+}
 
 .navbar 
 {
@@ -112,7 +121,7 @@ form.navbar-form input.btn
 	padding:10px 10px;
 	
 }
-form.navbar-form input.searchqueryfield:focus
+form.inline-form input.main-search:focus
 {
 	color:#000;
 	font-weight:bold;
@@ -162,7 +171,7 @@ form.navbar-form input.searchqueryfield:focus
 	border:none;
 	background-image: none;
 	border-color:none;
-    color:rgb(238, 101, 87);
+    color:#383838;
 box-shadow:none;
 border-color:none;
 border:none;
@@ -175,7 +184,7 @@ border:none;
     /* set the background of the menu items to pink and default color to white */
 
     .top-bar .nav > li > a {
-        color: rgb(238, 101, 87);
+        color: #383838;
 		font-weight:bold;
 		text-shadow:none;
 		font-size:14px;
@@ -209,15 +218,7 @@ section
 {
 	width:100%;
 }
-section#main
-{
-	
-	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
-    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
-    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
-    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
-    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
-}
+
 div.container
 {
 	overflow:auto;
@@ -249,6 +250,8 @@ div.col-4
 
 
 /*show page styles */
+
+
 section#hero
 {
 	border-bottom: 1px solid #ccc;
@@ -259,8 +262,6 @@ font-size: 21px;
 font-weight: 200;
 line-height: 2.1428571435;
 color: inherit;
-height:250px;
-margin-top:0;
 }
 .jumbotron h1 {
 	font-family: 'NeuzeitGroT_Bold','Arvo',"Helvetica Neue", "Helvetica", "Calibri", Arial, sans-serif;
@@ -269,13 +270,8 @@ line-height: 1;
 color: #383838;
 padding:0 0px;
 text-shadow: -2px -2px 2px -4px rgb(109,109,103);
-padding-top:110px;
+padding-top:150px;
 }
-.jumbotron h1:first-letter
-{
-	font-size:40px;
-}
-
 .jumbotron p
 {
 	font-size:12px;
@@ -290,18 +286,17 @@ padding-top:110px;
 	border-radius:0;
 	background-color:#adc77e;
 }
-.jumbotron .badge:hover
-{
-background-color:#8cae4d;	
-}
-.jumbotron .badge:hover span[class*=" icon-"], .jumbotron .badge:active span[class*=" icon-"]
-{
-	background-image:url(/assets/glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png);
-}
 .jumbotron h1 img
 {
 	margin:0;
 }
+/*
+.jumbotron span.icon-heart:hover, .jumbotron span.icon-heart:focus
+{
+	background-color:#CB202D;
+	background-image:url(/assets/glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png);
+}
+*/
 
 h3.menucategory
 {
@@ -309,7 +304,8 @@ h3.menucategory
 	font-size:16px;
 	margin-bottom:0;
 	padding:5px 1%;
-	border:1px solid rgb(238, 101, 87) ;
+	margin: 0 1.1;
+	border-bottom:1px solid #ccc;
 	color:rgb(238, 101, 87);
 	background-color:#efeee9;	
 }
@@ -434,24 +430,51 @@ h2.orderbucket
 
 div.review-box
 {
-	width:96%;
+	width:92%;
 	margin:2%;
+	padding:2%;
 }
 
 div.reviews
 {
 	border-radius:8px;
-	color:rgb(109, 109, 103);
-	margin:2%;
-	width:94%;
+	color:#383838;
+	background-color:#efeee9;
+	width:100%;
+	margin:10px;
+}
+div.reviews h4
+{
+	float:left;
+	color:#8B0000;
+	width:90%;
+	font-size:18px;
+	display:inline-block;
 }
 div.reviews h4, div.reviews p
 {
 	padding:10px;
+	margin:0;
+}
+div.reviews p#reviewscore
+{
+	padding:10px;
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+display:inline-block;
 }
  div.reviews p
 {
 	padding-top:0;
+	font-size:14px;
+	line-height:21px;
+}
+div.reviews p#review-meta
+{
+	clear:both;
+	font-size:12px;
+	color:#666;
 }
 div.review-form
 {
@@ -465,12 +488,11 @@ div.review-form a.btn
 }
 h2.review-heading
 {
-	font-family:Arial, 'Liberation Sans', Helvetica, FreeSans, sans-serif;
 	font-size:20px;
 	padding: 0 2%;
 	margin:0;
 }
-div.review-form input, div.review-form textarea
+div.review-form form input, div.review-form form textarea
 {
 		margin:2%;
 		font-size: 24px;
@@ -498,11 +520,12 @@ div.review-form input, div.review-form textarea
 		font-family: Helvetica,Arial,sans-serif;
 	
 }
-div.review-form textarea
+div.review-form form textarea
 {
 	height:250px;
+	margin:0;
 }
-div.review-form input.btn
+div.review-form form input[type="submit"].btn
 {
 	color: #fff;
 	background-color: #F00;
@@ -526,8 +549,9 @@ div.review-form input.btn
 	line-height: 28px;
 	padding: 8px 25px;
 	height:auto;
-	width: 30%;
+	width:300px;
 	float:right;
+	margin-right:48px;
 	
 }
 div.review-form label
@@ -553,8 +577,17 @@ div.top-bar
     display: none;
 }
 
+
+div.container div.hotel-info
+{
+	padding:2%;
+	margin:2%;
+	widht:92%;
+}
+
 /* home page styles ****/
 #slider { 
+	border-bottom:1px inset #eee;
 	clear:both;
 	position:relative;
 	height:400px;
@@ -570,13 +603,22 @@ div.top-bar
 div#slider img
 {
 	width:100%;
-	position:top;
+	position:relative;
 }
 
-
+section#main-page
+{
+	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
+    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
+	
+}
 
 section.form-gray
 {
+
 	background-color:rgb(238, 238, 238);
 	border-bottom:1px solid #ccc;
 	border-top:1px solid #ccc;
@@ -590,12 +632,12 @@ form.mainpage-form
 form.inline-form input.main-search
 {
 	margin:0;
-	font-size: 24px;
+	font-size: 18px;
 	height: 24px;
 	line-height: 28px;
 	padding: 10px 6px;
 	border: 1px solid silver;
-	width: 850px;
+	width: 650px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	-webkit-border-radius: 3px;
@@ -613,10 +655,10 @@ form.inline-form input.main-search
 	-webkit-box-shadow: 0 2px 5px 5px rgba(231, 231, 231, 0.4) inset;
 	box-shadow: 0 2px 5px 1px rgba(231, 231, 231, 0.4) inset;
 	font-family: Helvetica,Arial,sans-serif;
-	color:#ccc;
+	color:#888;
 }
 
-form.mainpage-form input.btn-primary
+section div.container form.mainpage-form input.btn, form.mainpage-form input.btn-primary
 {
 	
 	color: #fff;
@@ -642,8 +684,10 @@ form.mainpage-form input.btn-primary
 	padding: 8px 25px;
 	display: inline-block;
 	height:44px;
+	margin:-4px 0 0;
+	width:200px;
 }
-form.inline-form input.main-search:focus
+form.inline-form input.main-search:active
 {
 	color:#000;
 }
@@ -690,181 +734,177 @@ ul.favorites li.favorites-listitem p.fav-list-desc
 	height:20px;
 	margin:0;	
 }
+/* search page **********/
 
-
-/* 
-
-div.col-12 h1
+section#search
 {
-	padding:0 3%;
+	background-color:#efeee9;
 }
 
-td
+section#search div.col-12
 {
-	width:33%;
+	background-color:#fff;
+	margin:4% auto;
+	width:76%;
+	min-height:560px;
+	-moz-box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	-webkit-box-shadow:rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	border:1px solid #eee;
+}
+section#search div.col-12 div.search-header
+{
+	padding:20px;
+	height:auto;
 	text-align:center;
-	border-bottom:1px solid #ccc;
-	border-collapse:collapse;
-}
-div.hotel-info
-{
-	font-weight:bold;
-	padding:2%;
-	width:95.5%;
-	margin-top:2%;
-}
-td input
-{
-widht:80%;
+	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
+    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
 }
 
- table.myTable th
+section#search div.col-12 form.searchresults input
 {
-	border:none;
-	font-size:13px;
-	font-weight:bold;
+	width:550px;
+	
 }
-table.myTable td input 
+section#search div.col-12 form.searchresults input.btn
 {
-	background-color:transparent;
-	border:none;
-	box-shadow:none;
+	height:40px;
+	width:100px;
+	color:#fff;
 }
-table.myTable tr
+ul.searchresults 
 {
-	border-bottom:1px solid #ccc;
+	margin:0;
+	padding:0;
 }
 
-table.totaltable
+ul.searchresults li
+{
+	list-style:none;
+	margin:0px;
+	padding:10px;
+	height:200px;
+	border-bottom: 1px solid #eee;
+}
+
+ul.searchresults li:hover
+{
+	background-color:#fafafa;
+}
+
+
+ul.searchresults li h3 a:active, ul.searchresults li h3 a:link, ul.searchresults li h3 a:hover, ul.searchresults li h3 a:focus{
+	background-color:inherit;
+	color:#4383c5;
+	font-size:16px;
+	text-decoration:none;
+}
+
+ select.city
+{
+	margin:2px 0 0;
+height:46px;
+border:none;
+box-shadow:0 0 0 #fff ;
+-webkit-box-shadow:0 0 0 #fff ;
+-moz-box-shadow:0 0 0 #fff;
+padding:15px 0;
+border:none;
+background-color:#fff;
+background-image:none;
+border:1px solid #ccc;
+border-radius:0;
+appearance:field;
+-moz-appearance:menulist; /* Firefox */
+-webkit-appearance:field; /* Safari and Chrome */
+font-size:16px;
+font-weight:bold;
+color:#000;
+
+}
+div.container div.user_dashboard_links
+{
+	width:25%;
+	float:left;
+	height:160px;
+	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
+    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
+}
+div.container div.user_dashboard
+{
+	width:71%;
+	float:right;
+	padding:0 2%;
+}
+
+div.container div.user_dashboard_links ul li
+{
+	list-style:none;
+}
+div.container div.user_dashboard_links ul li a:link
+{
+	height:20px;
+	font-size:14px;
+	display:block;
+	color:#4383c5;
+	font-weight:bold;
+	padding:20px;
+	
+}
+div.container div.user_dashboard_links ul li a:hover, div.container div.user_dashboard_links ul li a.active, div.container div.user_dashboard_links ul li a:focus
+{
+	background-color:#fff;
+	text-decoration:none;
+	color:#4383c5;
+}
+div.container form.edit_user
 {
 	width:100%;
+	font-size:12px;
 }
-table.totaltable td
+div.container form.edit_user input
 {
-	text-align:right;
+	border:none;
+	border-bottom:1px dotted #383838;
+	box-shadow:none;
+	padding:10px 10px 0 0;
+	margin:0;
+	width:230px;
+	
 }
-.hidden
+
+div.container form.edit_user label
+{
+	font-weight:bold;
+	font-size:14px;
+	padding:0;
+	margin:0;
+}
+form.edit_user fieldset div
+{
+	margin:30px 5px;
+	float:left;
+	height:100px;
+	width:250px;
+	
+}
+
+div.clear
+{
+	clear:both;
+}
+div.clear a
+{
+	color:#4383c5;
+}
+
+input.hidden-field
 {
 	visibility:hidden;
 }
-table.menu tr:hover
-{
-	 cursor: pointer;
-	background-color:#bce8f1;
-}
-table.ordersummary
-{
-	width:50%;
-}
-table.ordersummary *
-{
-	border:none;
-	
-	
-}
-table.ordersummary .price
-{
-	text-align:right;
-	
-}
-table.ordertotal tr
-{
-	border-top:1px solid #000;
-}
-tr.tableheader
-{
-	border-bottom:1px solid #000;
-	
-}
-
-form.navbar-form input.searchqueryfield, form.mainpage-form input.main-search
-{
-	width:300px;
-	color:#aaa;
-	
-}
-form.navbar-form input.searchqueryfield:focus, form.mainpage-search input.main-search:focus
-{
-	color:#000;
-	
-}
-
-form.mainpage-form
-{
-	margin:250px 0 0 ;
-}
-
-form.inline-form input.main-search
-{
-	margin:0;
-	font-size: 24px;
-	height: 24px;
-	line-height: 28px;
-	padding: 10px 6px;
-	border: 1px solid silver;
-	width: 850px;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-	-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
-	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
-	transition: border linear 0.2s, box-shadow linear 0.2s;
-	-moz-box-shadow: 0 2px 5px 5px rgba(231, 231, 231, 0.4) inset;
-	-webkit-box-shadow: 0 2px 5px 5px rgba(231, 231, 231, 0.4) inset;
-	box-shadow: 0 2px 5px 1px rgba(231, 231, 231, 0.4) inset;
-	font-family: Helvetica,Arial,sans-serif;
-}
-
-form.mainpage-form input.btn-primary
-{
-	color: #fff;
-	background-color: #F00;
-	border: 1px solid #d90000;
-	background-image: -ms-linear-gradient(top, red, #d90000);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(red), to(#d90000));
-	background-image: -webkit-linear-gradient(top, red, #d90000);
-	background-image: -o-linear-gradient(top, red, #d90000);
-	background-image: linear-gradient(top, red, #d90000);
-	background-image: -moz-linear-gradient(top, red, #d90000);
-	-moz-box-shadow: 0 1px 4px rgba(32, 32, 32, 0.8), 0 10px 25px -5px rgba(255, 255, 255, 0.5) inset;
-	-webkit-box-shadow: 0 1px 4px rgba(32, 32, 32, 0.8), 0 10px 25px -5px rgba(255, 255, 255, 0.5) inset;
-	box-shadow: 0 1px 4px rgba(32, 32, 32, 0.8), 0 10px 25px -5px rgba(255, 255, 255, 0.5) inset;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-	font-size: 24px;
-	line-height: 28px;
-	padding: 8px 25px;
-	display: inline-block;
-}
-
-body#homepage header
-{
-	height:680px;
-	background-image:url('/assets/mainbg2.jpg') !important;
-}
-
-footer
-{
-	min-height:300px;
-	background-color:#fff;
-}
-
-
-table.menu tr td, table.myTable tr td input
-{
-	font-size:13px;
-	font-weight:bold;
-}
-
-*/

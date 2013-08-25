@@ -1,34 +1,165 @@
+<section id="search">
+<div class="container">
 <div class="row">
-	<div class ="col-8 col-lg-8">
-	
-<%=  gmaps4rails(@json) %>
-</div>
-<div class ="col-4 col-lg-4">
+<div class ="col-12 col-lg-12">
 <% if !@restaurantresults.blank? %>
-<h1>Restaurants with the name <%= params[:searchquery]%> </h1>
-<ul>
+<div class="search-header">
+	<%= form_tag "/pages/searchresults" ,:class=>"inline-form searchresults", :method => 'get' do %>
+	  <p>
+		<%= text_field_tag :searchquery, "#{params[:searchquery]}", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items';}",:class=>"searchqueryfield typeahead"  %>
+		<%= hidden_field_tag :cities, params[:cities] %>
+	    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
+	  </p>
+	<% end %>
+<h3> There are <%= pluralize(@restaurantresults.count, "restaurant") %> that have the term "<%= params[:searchquery] %>" in their name</h3>
+</div>
+<ul class="searchresults">
 	<% @restaurantresults.each do |rs| %>
-	<li><h3><%= link_to rs.restname, "/#{rs.restusername}" %></h3></li>
+	<li><h3><%= link_to rs.restname, "/restaurants/#{params[:cities]}" %></h3>
+		<p class="rcost"><%= rs.raddress %></p>
+		<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
+		<p class="rcost"><%= rs.restdeltime %></p>
+		<p class="rcost"><%= rs.rcost %></p>
+		
+		
+		</li>
 	<%end%>
 </ul>
 <%end%>
 
 
 <% if !@menuresults.blank? %>
-<h1>Dishes with the name <%= params[:searchquery]%> </h1>
-<ul>
+
+<div class="search-header">
+
+<%= form_tag "/pages/searchresults" ,:class=>"inline-form searchresults", :method => 'get' do %>
+  <p>
+	<%= text_field_tag :searchquery, "#{params[:searchquery]}", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items';}",:class=>"searchqueryfield typeahead"  %>
+	<%= hidden_field_tag :cities, params[:cities] %>
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
+  </p>
+<% end %>
+<h3>Following are the restaurants that serve dish that include <%= params[:searchquery] %></h3>
+</div>
+<ul class="searchresults">
+	<% @restaurants = [] %>
 	
 	<% @menuresults.each do |ms| %>
 	<% @restaurantresult  = Restaurant.find(ms.restaurant_id)%>
-    
-	<li><h3><%= ms.itemname %> served by <%= link_to @restaurantresult.restname, "/#{@restaurantresult.restusername}" %></h3></li>
+	<% if @restaurantresult.city == @restcity.city %>
+<% @restaurants << @restaurantresult %>
+
 	<%end%>
+	<%end%>
+	
+	<% @restaurants.uniq(&:id).each do |r| %>
+	
+	<li><h3><%= link_to r.restname, "/restaurants/#{params[:cities]}" %></h3>
+			<p class="rcost"><%= r.raddress %></p>
+			<p class="rcost">Minimum Order: <%= r.restdelmin %></p>
+			<p class="rcost"><%= r.restdeltime %></p>
+			<p class="rcost">Cost for 2: <%= r.rcost %></p>
+			</li>
+			
+				<%end%>
+	
 
 </ul>
 
 <%end%>
+
+
+
+<% if !@itemcategory.blank? %>
+
+<div class="search-header">
+
+<%= form_tag "/pages/searchresults" ,:class=>"inline-form searchresults", :method => 'get' do %>
+  <p>
+	<%= text_field_tag :searchquery, "#{params[:searchquery]}", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items';}",:class=>"searchqueryfield typeahead"  %>
+	<%= hidden_field_tag :cities, params[:cities] %>
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
+  </p>
+<% end %>
+<h3>Following are the restaurants that serve "<%= params[:searchquery] %>"</h3>
+</div>
+<ul class="searchresults">
+	<% @restaurants = [] %>
+	
+	<% @itemcategory.each do |ic| %>
+	<% @restaurantresult  = Restaurant.find(ic.restaurant_id)%>
+	<% if @restaurantresult.city == @restcity.city %>
+<% @restaurants << @restaurantresult %>
+
+	<%end%>
+	<%end%>
+	
+	<% @restaurants.uniq(&:id).each do |r| %>
+	<li><h3><%= link_to r.restname, "/restaurants/#{params[:cities]}" %></h3>
+			<p class="rcost"><%= r.raddress %></p>
+			<p class="rcost">Minimum Order: <%= r.restdelmin %></p>
+			<p class="rcost"><%= r.restdeltime %></p>
+			<p class="rcost">Cost for 2: <%= r.rcost %></p>
+			</li>
+				<%end%>
+	
+
+</ul>
+
+<%end%>
+
+
+<% if !@restarearesults.blank? %>
+<div class="search-header">
+	<%= form_tag "/pages/searchresults" ,:class=>"inline-form searchresults", :method => 'get' do %>
+	  <p>
+		<%= text_field_tag :searchquery, "#{params[:searchquery]}", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items';}",:class=>"searchqueryfield typeahead"  %>
+		<%= hidden_field_tag :cities, params[:cities] %>
+	    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
+	  </p>
+	<% end %>
+<h3> There are <%= pluralize(@restarearesults.count, "restaurant") %> in the area "<%= params[:searchquery] %>"</h3>
+</div>
+<ul class="searchresults">
+	<% @restarearesults.each do |rs| %>
+	<li><h3><%= link_to rs.restname, "/restaurants/#{params[:cities]}" %></h3>
+		<p class="rcost"><%= rs.raddress %></p>
+		<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
+		<p class="rcost"><%= rs.restdeltime %></p>
+		<p class="rcost"><%= rs.rcost %></p>
+		
+		
+		</li>
+	<%end%>
+</ul>
+<%end%>
+
+
+
+
+<% if @menuresults.blank? && @restaurantresults.blank? && @restarearesults.blank? && @itemcategory.blank? %>
+
+<div class="search-header">
+
+<%= form_tag "/pages/searchresults" ,:class=>"inline-form searchresults", :method => 'get' do %>
+  <p>
+	<%= text_field_tag :searchquery, "#{params[:searchquery]}", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items ';}",:class=>"searchqueryfield typeahead"  %>
+	<%= hidden_field_tag :cities, params[:cities] %>
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
+  </p>
+<% end %>
+<h3>There are no restaurants / menu items / cuisines / areas that match the term "<%= params[:searchquery] %>". Please search again.</h3>
+</div>
+<% end %>
+
+
 </div>
 </div>
+</div>
+
+
+
+</section>
 <%= yield :scripts %>
 <script>
 $('#infowindow').popover(options)

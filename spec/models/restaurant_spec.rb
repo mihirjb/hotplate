@@ -22,6 +22,9 @@
 #  rtimings       :string(255)
 #  rdelradius     :integer
 #  rarea          :string(255)
+#  rcost          :integer
+#  gmaps          :boolean
+#  onlyveg        :boolean
 #
 
 require 'spec_helper'

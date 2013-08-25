@@ -1,28 +1,50 @@
-<div id="MyDialog" class="hide" title="Customize Order">
- <form id="d-form">
-    <fieldset>
-        <label for="quantity">Quantity</label>
-        <input type="text" name="quantity" id="quantity" class="required" />
-        <label for="adjustments">Special Instructions</label>
-        <textarea name="adjustments" id="adjustments" class="text ui-widget-content ui-corner-all required"></textarea>
-    </fieldset>
-    </form>
-	
-</div>
+<% if !@review.blank?
+	@numreview = @review.count.to_f
+	@reviewtotal = 0
+		@review.each do |r|
+	 	@reviewtotal += r.score
+end 
+
+@reviewscore = @reviewtotal/@numreview
+end 
+%>
+	<div id="MyDialog" class="hide" title="Customize Order">
+	 <form id="d-form">
+		<p class="itemdesc"></p>
+	    <fieldset>
+	        <label for="quantity">Quantity</label>
+	        <input type="text" name="quantity" id="quantity" class="required" />
+	        <label for="adjustments">Special Instructions</label>
+	        <textarea name="adjustments" id="adjustments" class="text ui-widget-content ui-corner-all required"></textarea>
+	    </fieldset>
+	    </form>
+
+	</div>
+
+
+
+
+
+
+
 
 <section id="hero">
 <div class="container">
 <div class="jumbotron">
+	<div class="left">
 		<h1>
-<%= @restaurant.restname %> <img src="/assets/veg.png" title="serves veg" alt"vegetarian" /> <img src="/assets/nonveg.png" title="serves  non veg" alt"non-vegetarian" />
+<%= @restaurant.restname %> <img src="/assets/veg.png" title="serves veg" alt"vegetarian" /><% if !@restaurant.onlyveg %> <img src="/assets/nonveg.png" title="serves  non veg" alt"non-vegetarian" /><% end %>
 	</h1>
-	<p class="badge">Approx cost: <%= @restaurant.rcost %> Rs</p>
-		<p class="badge"> Minimum Order: <%= @restaurant.restdelmin %> Rs</p>
-		<p class="badge"><span class="glyphicon icon-comment"></span> Delivery time: <%= @restaurant.restdeltime %></p>
-		<p class="badge"><span class="glyphicon icon-time"></span> Timings: <%= "#{@restaurant.rtimings}"  %> </p>
-			<p class="badge"><span class="glyphicon icon-star"></span></p>
+	<p class="badge"><span class="glyphicon icon-barcode"></span> <strong>Approx cost:</strong> <%= @restaurant.rcost %> Rs</p>
+		<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p>
+		<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p>
+		<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p></div>
+		<div class="right">
+			<p class="reviewscore"><%= "#{@reviewscore}" unless @reviewscore.nil? %> <%= "No" if @reviewscore.nil? %>  <br /><span class="small">review score</span></p>
+			<p class="badge"><span class="glyphicon icon-heart"></span></p>
 			<p class="badge"><span class="glyphicon icon-ok-sign"></span></p>
 		<p class="badge"><span class="glyphicon icon-comment"></span></p>
+		</div>
 			
 	<p>
 	<% if admin_signed_in? %>
@@ -33,28 +55,23 @@
 <div>
 </section>	
 	
-<section>
+<section id="content">
 <div class="navbar navbar top-bar">
 	<div class="navbar-inner">
 		<ul class="nav nav-pills nav-justified" id ="myTab">
 		    <li class="active"><a data-toggle="tab" href="#menu">Menu</a></li>
 		    <li><a data-toggle="tab" href="#info">Information</a></li>
 		    <li><a data-toggle="tab" href="#review">Reviews</a></li>
-		    <li><a data-toggle="tab" href="#maps">Maps</a></li>
+		    <li><a data-toggle="tab" href="#maps">Map</a></li>
+		<li class="selectcat">Skip to	<%=	select_tag "categories", options_from_collection_for_select(@uniq_itemcategories, "itemcategory", "itemcategory"),:class => "city", :onChange =>"location = '#'+this.options[this.selectedIndex].value;" %></li>
 		</ul>
 		</div>
+		
+	
+		
+	
 	</div>
 
-</section>
-
-<section>
-<div class="container">
-<div class="row">
-	<div class ="col-12 col-lg-12">
-	
-
-</div>
-</div>
 
 
 
@@ -64,9 +81,7 @@
 
 
  		<div>
-		</section>
 
-		<section id="content">
 		<div class="container">    
 
 <div id="myTabContent" class="tab-content">
@@ -76,14 +91,13 @@
 		    <% @uniq_itemcategories.each do |u| %>
 		      				<div class="menucontainer">
 								<%@menuitem1 = @restaurant.menuitems.find_all_by_itemcategory(u.itemcategory)%>
-								<h3 class="menucategory"><%= u.itemcategory %></h3>
+								<h3 class="menucategory" id ='<%= u.itemcategory%>'><%= u.itemcategory %></h3>
 								<form action="show_submit" method="get" accept-charset="utf-8">
-											<table class="table table-condensed menu table-hover">
+											<table class="table menu table-hover">
 												<% @menuitem1.each do |i|%>
 												<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>										
 
-
-
+											
 
 					<script>
 					
@@ -177,6 +191,8 @@
 										                    if (bValid ){
 											var itemname = $("#itemname"+itemclass).text();
 											var qty = $("#quantity").val();
+											var specialinstruction = $("#adjustments").val();
+											
 											var itemprice = parseInt($("#quantity").val()) * parseInt($("#itemunitprice"+itemclass).text());
 
 
@@ -184,7 +200,7 @@
 		$('.myTable').append("<tr>" +
 										              "<td><input class='itemname' type='text' name='item[][itemname]'  value='" + itemname + "' readonly /></td>" +
 										              "<td><input type='text' name='item[][quantity]' class='qty' value='" + qty + "' readonly /></td>" +
-										              "<td><input class='price' name='item[][itemprice]' type='text' value='" + itemprice + "' readonly /></td><td><a href='#' class='btn btn-danger remove'><span class=' glyphicon icon-remove''></span></a></td>" +
+										              "<td><input class='price' name='item[][itemprice]' type='text' value='" + itemprice + "' readonly /></td><td><input class='hidden-field' name='item[][specialinstruction]' type='text' value='" + specialinstruction + "' readonly /></td><td><a href='#' class='btn btn-danger remove'><span class=' glyphicon icon-remove''></span></a></td>" +
 										            "</tr>").hide().show("slide",{direction: 'up'});
 
 													$('.order-bucket').show("slide",{direction: 'up'});
@@ -251,7 +267,7 @@
 									<tr><td class="totaldesc">Your Restaurant SubTotal <strong>(A) =</strong></td><td><input name="subtotal" id="subtotal" readonly/></td></tr>
 									<tr><td>Service tax(12.5%) <strong>(B) = </strong></td><td><input name="servicetax" id="servicetax" readonly/></td></tr>
 									<tr><td>Delivery Tip <strong>(C) =</strong></td><td><input name="deliverytip" id="deliverytip" readonly/></td></tr>
-									<tr><td><strong>Your Total (A + B + C) =</strong></td><td><input name="total" id="total" readonly/></td></tr>
+									<tr><td><strong>Your Total (A + B + C) =</strong></td><td><input name="total" id="total" value="" readonly/></td></tr>
 									</table>
 									<div class="alert alert-info">Confirm and place your order.</div>
 
@@ -311,11 +327,16 @@
 
 <div class="tab-pane fade in" id="info">
 	<div class="hotel-info">
-		<p><%= @restaurant.raddress %><br/> Phone: <%= @restaurant.restphone %> </p>
-
-		<p>Minimum Delivery charges: <%= @restaurant.restdelmin %> Rupees</p>
-		<p>Minimum Delivery time: <%= @restaurant.restdeltime %></p>
-		<p>Timings: <%= "#{@restaurant.rtimings}"  %> </p>
+		<h1>About us</h1>
+		<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+		<div class="left">
+			<h4>Address</h4>
+		<p class="badge"><%= @restaurant.raddress %></p><br/><br/><p class="badge"><span class="glyphicon icon-home"></span> <strong>Phone:</strong> <%= @restaurant.restphone %></p>
+		<p class="badge"><span class="glyphicon icon-barcode"></span> <strong>Approx cost:</strong> <%= @restaurant.rcost %> Rs</p>
+			<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p>
+			<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p>
+			<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p>
+			</div>
 		</div>
 	</div>
 
@@ -327,6 +348,8 @@
 			<% @review.each do |r| %>
 						<div class="reviews">
 							<h4><%= r.title %></h4>
+							<p id="reviewscore"><%= r.score %>/5</p>
+							<p id="review-meta">written by <%= r.author %> on <%= r.created_at %></p>
 							<p><%= r.reviewtext %></p>
 							</div>
 							<% end %>
@@ -336,7 +359,10 @@
 									<h2 class="review-heading">Write a review</h2>
 
 									<%= form_for :reviews, :url=> "/reviews" do |ff| %>
-
+										<div class="field">
+												<%= ff.label :score, "Review score out of 5" %>
+										<%= ff.select :score, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']]%>
+										</div>
 										<div class="field">
 											<%= ff.label :title, "Title" %>
 											<%= ff.text_field :title %>
@@ -381,7 +407,5 @@
 </div>
 <div>
 </section>
-
-
 
 			

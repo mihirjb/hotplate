@@ -1,4 +1,11 @@
-<h1>Your Order history</h1>
+<div class="user_dashboard_links">
+<ul>
+	<li><%= link_to "Account Details", edit_user_registration_path %></li>
+	<li><%= link_to "Order History", "/pages/transactionhistory", :class => "active" %></li>
+</ul>
+</div>
+
+<div class="user_dashboard">
 <% @userorders.each do |o| %>
 <% @userorderitems = Orderitem.find_all_by_order_id(o.id) %>
 
@@ -10,3 +17,4 @@
 <% end %>
 <table>
 <%end%>
+</div>

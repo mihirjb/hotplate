@@ -22,10 +22,13 @@
 #  rtimings       :string(255)
 #  rdelradius     :integer
 #  rarea          :string(255)
+#  rcost          :integer
+#  gmaps          :boolean
+#  onlyveg        :boolean
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps
+  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg
   
   has_many :menuitems
   has_many :orderitems
@@ -44,10 +47,10 @@ class Restaurant < ActiveRecord::Base
             
 
   # validates_presence_of :restabout
-  validates_presence_of :restdelmin
+ # validates_presence_of :restdelmin
   validates_presence_of :raddress
   # validates_presence_of :restdeltime
-  validates_presence_of :restname
+  # validates_presence_of :restname
   #validates_presence_of :restphone	
  # validates_presence_of :restemail
 #  validates_presence_of :city

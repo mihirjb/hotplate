@@ -32,7 +32,6 @@
 				<% if user_signed_in? %>
 				<li><%= link_to "Home", root_path %></li>
 					<li><%= link_to "#{current_user.userfullname}", edit_user_registration_path %></li>
-					<li><%= link_to "Order History", "/pages/transactionhistory" %></li>
 					
 			<li></li>  
 		
@@ -40,23 +39,20 @@
 			
 			<li style= "float:right"><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
 			<% else %>
-			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Home", root_path  %></li>
 			<li><%= link_to "Sign in ", new_user_session_path %><li>
 		<% end %>
 		
-		</ul>	
-	
-		<%= form_tag "/pages/searchresults" ,:class=>"navbar-form", :method => 'get' do %>
-		  <p>
-			<%= text_field_tag :searchquery, "Search for restaurants, dishes, area etc", :onfocus => "$(this).val('')", :onblur => "$(this).val('Search for restaurants, dishes, area etc')",:class=>"searchqueryfield typeahead"  %>
-		    <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
-		  </p>
-		<% end %>
-		
+		</ul>
 		</div>
 		</div>
 		</header>
 		<div class="container">
+				<% if flash[:notice] %>
+				<div class='alert <% if flash[:notice] =~ /Success/i %> alert-success <% else %> alert-error<% end %>'>
+				<p><%= flash[:notice] %></p>
+				</div>
+				<% end %>
 	<%= yield %>
 	</div>	
 <footer>
