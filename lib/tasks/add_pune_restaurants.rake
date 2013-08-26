@@ -9,21 +9,21 @@ task :add_pune_restaurant => :environment do
 @url.each do |u|
    url = u.tkurl
    doc = Nokogiri::HTML(open(url))
-   rtimings = doc.css('.open').text
-   rminorder = doc.css('#info_box li:nth-child(2) .money').text.split.join(' ')
-   rcost = doc.css('#info_box li:nth-child(3) .money').text.split.join(' ')
 mrl = u.zurl
 page = Nokogiri::HTML(open(mrl))
 rname = page.css('.res-main-name span').text
 raddress = page.css('.res-main-address-text').text.split.join(' ')
+rcost =  page.css('.cft-big').text.split.join(' ')
+rtimings =  page.css('.res-info-timings').text.split.join(' ')
 raddress.slice! "India"
 u.zurl.slice! "http://www.zomato.com/pune/"
 rarea =  u.zurl
 rarea = rarea.gsub("-"," ")
 doname = rname.downcase
 rarea = rarea.gsub("#{doname}", "")
+deliversnot = false
 
-@restaurant = Restaurant.create(:restname => rname, :rtimings => rtimings, :restdelmin => rminorder, :rcost => rcost, :raddress => raddress, :city => "Pune", :delivers => "false", :rarea => rarea)
+@restaurant = Restaurant.create(:restname => rname, :rtimings => rtimings, :rcost => rcost, :raddress => raddress, :city => "Pune", :delivers => 0 , :rarea => rarea)
 
 divs = doc.css('a[id^="main_"]')
 divs.each do |d|

@@ -36,7 +36,7 @@ end
 <%= @restaurant.restname %> <img src="/assets/veg.png" title="serves veg" alt"vegetarian" /><% if !@restaurant.onlyveg %> <img src="/assets/nonveg.png" title="serves  non veg" alt"non-vegetarian" /><% end %>
 	</h1>
 	<p class="badge"><span class="glyphicon icon-barcode"></span> <strong>Approx cost:</strong> <%= @restaurant.rcost %> Rs</p>
-		<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p>
+	<% if @restaurant.delivers %>	<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p> <% end %>
 		<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p>
 		<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p></div>
 		<div class="right">
@@ -328,12 +328,15 @@ end
 <div class="tab-pane fade in" id="info">
 	<div class="hotel-info">
 		<h1>About us</h1>
-		<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+		<p><% if !@restaurant.restabout.blank? %>
+			
+			<%= "#{@restaurant.restabout}" %>
+			<% end %></p>
 		<div class="left">
 			<h4>Address</h4>
 		<p class="badge"><%= @restaurant.raddress %></p><br/><br/><p class="badge"><span class="glyphicon icon-home"></span> <strong>Phone:</strong> <%= @restaurant.restphone %></p>
 		<p class="badge"><span class="glyphicon icon-barcode"></span> <strong>Approx cost:</strong> <%= @restaurant.rcost %> Rs</p>
-			<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p>
+				<% if @restaurant.delivers %>	<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p> <% end %>
 			<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p>
 			<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p>
 			</div>
@@ -398,14 +401,16 @@ end
 			<%= gmaps4rails(@json) %>
 				</div>
 					</div>
+					<%= yield :scripts %>
+					
 					</div>
 
-					<%= yield :scripts%>
 
 
     </div>
 </div>
 <div>
 </section>
+
 
 			

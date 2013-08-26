@@ -50,14 +50,15 @@ class Restaurant < ActiveRecord::Base
  # validates_presence_of :restdelmin
   validates_presence_of :raddress
   # validates_presence_of :restdeltime
-  # validates_presence_of :restname
+   validates_presence_of :restname
   #validates_presence_of :restphone	
  # validates_presence_of :restemail
-#  validates_presence_of :city
+   validates_presence_of :city
 #  validates_presence_of :deliveryarea
- # validates_presence_of :delivers
-# validates_presence_of :rtimings
+   #validates_presence_of :delivers
+ validates_presence_of :rtimings
  # validates :restusername, :presence =>true
+    validates_presence_of :rcost
    
     
   
