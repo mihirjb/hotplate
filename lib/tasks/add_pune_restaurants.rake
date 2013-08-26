@@ -36,15 +36,6 @@ divs.each do |d|
    iname = name.split.join(' ')
    iprice = r.css('.money').text.split.join(' ')
  
-  /#
-     r.css('.food_item').each do |f|
-       ingredients = f.css('.name .ingredients').text
-    iname = f.css('.name').text
-     iname.slice! "#{ingredients}"
-    iprice = f.css('.price').text
-    icategory = r.css('.scroll_tab .name').text.split.join(' ')
-    #/
-    
     @menuitem = Menuitem.create(:itemname => iname,:itemunitprice => iprice, :itemcategory => icategory, :itemdesc => ingredients, :restaurant_id => @restaurant.id)
   end
   

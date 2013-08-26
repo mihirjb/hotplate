@@ -963,6 +963,12 @@ input.hidden-field
 {
 	visibility:hidden;
 }
-
-
-
+div#maps iframe
+{
+	widht:90%;
+	padding:5%;
+}
+li.selectcat
+{
+	visiblity:hidden;
+}
