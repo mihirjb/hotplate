@@ -15,7 +15,7 @@
 </div>
 <ul class="searchresults">
 	<% @restaurantresults.each do |rs| %>
-	<li><h3><%= link_to rs.restname, "/restaurants/#{params[:cities]}" %></h3>
+	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 		<p class="rcost"><%= rs.raddress %></p>
 		<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 		<p class="rcost"><%= rs.restdeltime %></p>
@@ -95,7 +95,7 @@
 	<%end%>
 	
 	<% @restaurants.uniq(&:id).each do |r| %>
-	<li><h3><%= link_to r.restname, "/restaurants/#{params[:cities]}" %></h3>
+	<li><h3><%= link_to r.restname, "/restaurants/#{r.id}" %></h3>
 			<p class="rcost"><%= r.raddress %></p>
 			<p class="rcost">Minimum Order: <%= r.restdelmin %></p>
 			<p class="rcost"><%= r.restdeltime %></p>
@@ -122,7 +122,7 @@
 </div>
 <ul class="searchresults">
 	<% @restarearesults.each do |rs| %>
-	<li><h3><%= link_to rs.restname, "/restaurants/#{params[:cities]}" %></h3>
+	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 		<p class="rcost"><%= rs.raddress %></p>
 		<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 		<p class="rcost"><%= rs.restdeltime %></p>
