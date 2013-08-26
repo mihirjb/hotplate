@@ -66,6 +66,7 @@
 			</div>
 		
 </section>	
+
 <%= yield %>
 <footer>
 </footer>
@@ -76,13 +77,27 @@ $("#slider > div:gt(0)").hide();
 
 setInterval(function() { 
   $('#slider > div:first')
-    .fadeOut(2500)
+    .fadeOut(1000)
     .next()
-    .fadeIn(2500)
+    .fadeIn(1000)
     .end()
     .appendTo('#slider');
-},  5000);
+},  6000);
+
+$("#spider > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#spider > div:first')
+    .slideUp(500)
+    .next()
+    .slideDown(500)
+    .end()
+    .appendTo('#spider');
+},  6000);
 </script>
+
+
+
 
 
 
