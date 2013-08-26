@@ -45,7 +45,7 @@ divs.each do |d|
     icategory = r.css('.scroll_tab .name').text.split.join(' ')
     #/
     
-    @menuitem = @restaurant.menuitems.create(:itemname => iname,:itemunitprice => iprice, :itemcategory => icategory, :itemdesc => ingredients)
+    @menuitem = Menuitem.create(:itemname => iname,:itemunitprice => iprice, :itemcategory => icategory, :itemdesc => ingredients, :restaurant_id => @restaurant.id)
   end
   
 end

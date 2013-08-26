@@ -13,7 +13,7 @@
 #
 
 class Menuitem < ActiveRecord::Base
-  attr_accessible :itemcategory, :itemname, :itemunitprice, :restaurant_id,:itemdesc
+  attr_accessible :itemcategory, :itemname, :itemunitprice, :restaurant_id, :itemdesc
   belongs_to :restaurant
   
   validates_presence_of :itemname
