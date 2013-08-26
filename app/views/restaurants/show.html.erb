@@ -347,7 +347,13 @@ end
        		<div class="row">
 				<div class ="col-12 col-lg-12">
 			<div class="review-box">
-			<h2 class="review-heading">Reviews for <%= @restaurant.restname %></h2>
+			<h2 class="review-heading">
+			<% if @restaurant.reviews.empty? %> 
+				<%= "There are no reviews for this restaurant yet. Be the first one to write a review." %>
+				<% else %> 
+				<%= "Reviews for #{@restaurant.restname}" %> 
+				<% end %>
+				</h2>
 			<% @review.each do |r| %>
 						<div class="reviews">
 							<h4><%= r.title %></h4>
