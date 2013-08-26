@@ -54,7 +54,7 @@
 	
 	<% @restaurants.uniq(&:id).each do |r| %>
 	
-	<li><h3><%= link_to r.restname, "/restaurants/#{params[:cities]}" %></h3>
+	<li><h3><%= link_to r.restname, "/restaurants/#{r.id}" %></h3>
 			<p class="rcost"><%= r.raddress %></p>
 			<p class="rcost">Minimum Order: <%= r.restdelmin %></p>
 			<p class="rcost"><%= r.restdeltime %></p>
