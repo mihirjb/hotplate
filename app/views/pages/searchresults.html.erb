@@ -17,9 +17,9 @@
 	<% @restaurantresults.each do |rs| %>
 	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 			<p class="rcost"><%= rs.raddress %></p>
-			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+			<p class="rcost">Cost for 2: <%= rs.rcost %></p>
 				<p class="rcost">Cuisines: <%= rs.rcuisine %></p>
-				<p class="rcost">Features<%= rs.rfeatures %></p>
+				<p class="rcost">Features: <%= rs.rfeatures %></p>
 				<% if rs.delivers %>
 					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 					<p class="rcost">Delivery time:<%= rs.restdeltime %></p>
@@ -58,9 +58,9 @@
 	
 	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 			<p class="rcost"><%= rs.raddress %></p>
-			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+			<p class="rcost">Cost for 2: <%= rs.rcost %></p>
 				<p class="rcost">Cuisines: <%= rs.rcuisine %></p>
-				<p class="rcost">Features<%= rs.rfeatures %></p>
+				<p class="rcost">Features: <%= rs.rfeatures %></p>
 				<% if rs.delivers %>
 					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 					<p class="rcost">Delivery time: <%= rs.restdeltime %></p>
@@ -103,9 +103,9 @@
 	<% @restaurants.uniq(&:id).each do |rs| %>
 	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 			<p class="rcost"><%= rs.raddress %></p>
-			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+			<p class="rcost">Cost for 2: <%= rs.rcost %></p>
 				<p class="rcost">Cuisines: <%= rs.rcuisine %></p>
-				<p class="rcost">Features<%= rs.rfeatures %></p>
+				<p class="rcost">Features: <%= rs.rfeatures %></p>
 				<% if rs.delivers %>
 					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 					<p class="rcost"><%= rs.restdeltime %></p>
@@ -134,9 +134,9 @@
 	<% @restarearesults.each do |rs| %>
 	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 		<p class="rcost"><%= rs.raddress %></p>
-		<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+		<p class="rcost">Cost for 2: <%= rs.rcost %></p>
 			<p class="rcost">Cuisines: <%= rs.rcuisine %></p>
-			<p class="rcost">Features<%= rs.rfeatures %></p>
+			<p class="rcost">Features: <%= rs.rfeatures %></p>
 			<% if rs.delivers %>
 				<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 				<p class="rcost">Delivery time: <%= rs.restdeltime %></p>
