@@ -30,6 +30,9 @@
 class Restaurant < ActiveRecord::Base
   attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg,:rfeatures,:rcuisine
   
+  extend FriendlyId
+  friendly_id :restname, use: [:slugged, :history]
+  
   has_many :menuitems, :dependent => :destroy
   has_many :orderitems
   has_many :orders

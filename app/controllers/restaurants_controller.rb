@@ -24,6 +24,9 @@ class RestaurantsController < ApplicationController
        @menuitem = Menuitem.find_all_by_restaurant_id(@restaurant.id)
        @uniq_itemcategories = @menuitem.uniq(&:itemcategory) 
        @review = Review.find_all_by_restaurant_id(params[:id])
+       if request.path != restaurant_path(@restaurant)
+          redirect_to @restaurant, status: :moved_permanently
+        end
       
   end
 
