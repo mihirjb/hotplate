@@ -28,12 +28,12 @@
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg
+  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg,:rfeatures,:rcuisine
   
-  has_many :menuitems
+  has_many :menuitems, :dependent => :destroy
   has_many :orderitems
   has_many :orders
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
   
                 # auto-fetch coordinates
 

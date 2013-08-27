@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130825085850) do
+ActiveRecord::Schema.define(:version => 20130827145144) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20130825085850) do
     t.integer  "rcost"
     t.boolean  "gmaps"
     t.boolean  "onlyveg"
+    t.string   "rfeatures"
+    t.string   "rcuisine"
   end
 
   create_table "reviews", :force => true do |t|

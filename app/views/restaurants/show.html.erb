@@ -38,7 +38,9 @@ end
 	<p class="badge"><span class="glyphicon icon-barcode"></span> <strong>Approx cost:</strong> <%= @restaurant.rcost %> Rs</p>
 	<% if @restaurant.delivers %>	<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p>
 		<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p> <% end %>
-		<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p></div>
+		<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p>
+			<p class="badge"><span class="glyphicon icon-ok-circle"></span> <strong>Cuisines:</strong> <%= "#{@restaurant.rcuisine}"  %> </p>
+				<p class="badge"><span class="glyphicon icon-tags"></span> <strong>Features:</strong> <%= "#{@restaurant.rfeatures}"  %> </p></div>
 		<div class="right">
 			<p class="reviewscore"><%= "#{@reviewscore}" unless @reviewscore.nil? %> <%= "No" if @reviewscore.nil? %>  <br /><span class="small">review score</span></p>
 			<p class="badge"><span class="glyphicon icon-heart"></span></p>
