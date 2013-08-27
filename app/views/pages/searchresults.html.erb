@@ -20,7 +20,7 @@
 			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
 				<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
 				<p class="rcost">Features<%= rs.rfeatures %></p>
-				<% if r.delivers %>
+				<% if rs.delivers %>
 					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 					<p class="rcost">Delivery time:<%= rs.restdeltime %></p>
 			<% end %>
@@ -61,7 +61,7 @@
 			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
 				<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
 				<p class="rcost">Features<%= rs.rfeatures %></p>
-				<% if r.delivers %>
+				<% if rs.delivers %>
 					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 					<p class="rcost">Delivery time: <%= rs.restdeltime %></p>
 			<% end %>
@@ -106,7 +106,7 @@
 			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
 				<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
 				<p class="rcost">Features<%= rs.rfeatures %></p>
-				<% if r.delivers %>
+				<% if rs.delivers %>
 					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 					<p class="rcost"><%= rs.restdeltime %></p>
 			<% end %>
@@ -137,7 +137,7 @@
 		<p class="rcost">Cost for 2:<%= rs.rcost %></p>
 			<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
 			<p class="rcost">Features<%= rs.rfeatures %></p>
-			<% if r.delivers %>
+			<% if rs.delivers %>
 				<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
 				<p class="rcost">Delivery time: <%= rs.restdeltime %></p>
 		<% end %>
