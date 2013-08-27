@@ -31,7 +31,7 @@ class Restaurant < ActiveRecord::Base
   attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg,:rfeatures,:rcuisine
   
   extend FriendlyId
-  friendly_id :restname, use: [:slugged, :history]
+  friendly_id :name_with_area_and_city, use: [:slugged, :history]
   
   has_many :menuitems, :dependent => :destroy
   has_many :orderitems
@@ -63,7 +63,10 @@ class Restaurant < ActiveRecord::Base
  # validates :restusername, :presence =>true
     validates_presence_of :rcost
    
-    
+    protected
+    def name_with_area_and_city
+      restname + "-" + rarea + "-" + city
+    end 
   
   
 end
