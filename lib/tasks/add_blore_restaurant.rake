@@ -1,5 +1,5 @@
 desc "Get the Restaurant details from tastykhana and Zomato"
-task :add_pune_restaurant => :environment do
+task :add_blore_restaurant => :environment do
 
   require "nokogiri"
   require "open-uri"
