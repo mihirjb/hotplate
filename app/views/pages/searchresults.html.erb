@@ -16,10 +16,14 @@
 <ul class="searchresults">
 	<% @restaurantresults.each do |rs| %>
 	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
-		<p class="rcost"><%= rs.raddress %></p>
-		<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
-		<p class="rcost"><%= rs.restdeltime %></p>
-		<p class="rcost"><%= rs.rcost %></p>		
+			<p class="rcost"><%= rs.raddress %></p>
+			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+				<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
+				<p class="rcost">Features<%= rs.rfeatures %></p>
+				<% if r.delivers %>
+					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
+					<p class="rcost">Delivery time:<%= rs.restdeltime %></p>
+			<% end %>
 		</li>
 	<%end%>
 </ul>
@@ -50,13 +54,17 @@
 	<%end%>
 	<%end%>
 	
-	<% @restaurants.uniq(&:id).each do |r| %>
+	<% @restaurants.uniq(&:id).each do |rs| %>
 	
 	<li><h3><%= link_to r.restname, "/restaurants/#{r.id}" %></h3>
-			<p class="rcost"><%= r.raddress %></p>
-			<p class="rcost">Minimum Order: <%= r.restdelmin %></p>
-			<p class="rcost"><%= r.restdeltime %></p>
-			<p class="rcost">Cost for 2: <%= r.rcost %></p>
+			<p class="rcost"><%= rs.raddress %></p>
+			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+				<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
+				<p class="rcost">Features<%= rs.rfeatures %></p>
+				<% if r.delivers %>
+					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
+					<p class="rcost">Delivery time: <%= rs.restdeltime %></p>
+			<% end %>
 			</li>
 			
 				<%end%>
@@ -92,12 +100,16 @@
 	<%end%>
 	<%end%>
 	
-	<% @restaurants.uniq(&:id).each do |r| %>
+	<% @restaurants.uniq(&:id).each do |rs| %>
 	<li><h3><%= link_to r.restname, "/restaurants/#{r.id}" %></h3>
-			<p class="rcost"><%= r.raddress %></p>
-			<p class="rcost">Minimum Order: <%= r.restdelmin %></p>
-			<p class="rcost"><%= r.restdeltime %></p>
-			<p class="rcost">Cost for 2: <%= r.rcost %></p>
+			<p class="rcost"><%= rs.raddress %></p>
+			<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+				<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
+				<p class="rcost">Features<%= rs.rfeatures %></p>
+				<% if r.delivers %>
+					<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
+					<p class="rcost"><%= rs.restdeltime %></p>
+			<% end %>
 			</li>
 				<%end%>
 	
@@ -122,10 +134,13 @@
 	<% @restarearesults.each do |rs| %>
 	<li><h3><%= link_to rs.restname, "/restaurants/#{rs.id}" %></h3>
 		<p class="rcost"><%= rs.raddress %></p>
-		<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
-		<p class="rcost"><%= rs.restdeltime %></p>
-		<p class="rcost"><%= rs.rcost %></p>
-		
+		<p class="rcost">Cost for 2:<%= rs.rcost %></p>
+			<p class="rcost">Cuisines: <%= rs.rcuisines %></p>
+			<p class="rcost">Features<%= rs.rfeatures %></p>
+			<% if r.delivers %>
+				<p class="rcost">Minimum Order: <%= rs.restdelmin %></p>
+				<p class="rcost">Delivery time: <%= rs.restdeltime %></p>
+		<% end %>
 		
 		</li>
 	<%end%>

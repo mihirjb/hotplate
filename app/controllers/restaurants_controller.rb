@@ -51,7 +51,8 @@ class RestaurantsController < ApplicationController
        redirect_to root_path, :notice => "Restaurant couldn't be deleted please try again."
      end 
   end    
-     
-     
+    
+    
+  
   
 end
