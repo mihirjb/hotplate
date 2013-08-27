@@ -36,8 +36,8 @@ end
 <%= @restaurant.restname %> <img src="/assets/veg.png" title="serves veg" alt"vegetarian" /><% if !@restaurant.onlyveg %> <img src="/assets/nonveg.png" title="serves  non veg" alt"non-vegetarian" /><% end %>
 	</h1>
 	<p class="badge"><span class="glyphicon icon-barcode"></span> <strong>Approx cost:</strong> <%= @restaurant.rcost %> Rs</p>
-	<% if @restaurant.delivers %>	<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p> <% end %>
-		<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p>
+	<% if @restaurant.delivers %>	<p class="badge"><span class="glyphicon icon-info-sign"></span> <strong>Minimum Order:</strong> <%= @restaurant.restdelmin %> Rs</p>
+		<p class="badge"><span class="glyphicon icon-road"></span> <strong>Delivery time:</strong> <%= @restaurant.restdeltime %></p> <% end %>
 		<p class="badge"><span class="glyphicon icon-time"></span> <strong>Timings:</strong> <%= "#{@restaurant.rtimings}"  %> </p></div>
 		<div class="right">
 			<p class="reviewscore"><%= "#{@reviewscore}" unless @reviewscore.nil? %> <%= "No" if @reviewscore.nil? %>  <br /><span class="small">review score</span></p>
@@ -92,8 +92,9 @@ end
 		      				<div class="menucontainer">
 								<%@menuitem1 = @restaurant.menuitems.find_all_by_itemcategory(u.itemcategory)%>
 								<h3 class="menucategory" id ='<%= u.itemcategory%>'><%= u.itemcategory %></h3>
+								<table class="table menu table-hover">
+								
 								<form action="show_submit" method="get" accept-charset="utf-8">
-											<table class="table menu table-hover">
 												<% @menuitem1.each do |i|%>
 												<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>										
 
