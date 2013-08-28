@@ -85,11 +85,11 @@ header > .navbar
        }
 
 
-.navbar .btn
+.navbar .btn, .navbar .nav > li > a.btn
 {
 	padding-top: 0;
 	padding-bottom: 0;
-	margin-right: 15px;
+	margin: 17px;
 	display: inline-block;
 	vertical-align: middle;
 	padding: 6px 25px;
