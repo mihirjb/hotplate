@@ -20,3 +20,4 @@
 //= require /gmaps4rails/gmaps4rails.mapquest.js.coffee
 //= require /gmaps4rails/gmaps4rails.openlayers.js.coffee
 //= require_tree .
+

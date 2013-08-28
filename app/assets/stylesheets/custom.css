@@ -66,7 +66,7 @@ header > .navbar
 	font-weight:bold;
 	letter-spacing:.1em;
 	padding:23px 15px;
-	line-height:14px;
+	line-height:12px;
 }
 
 .navbar-inverse .nav > li > a:focus,
@@ -85,6 +85,33 @@ header > .navbar
        }
 
 
+
+form.navbar-form input.searchqueryfield
+{
+	height:20px;
+	margin:10px 0px;
+	padding:10px 10px;
+	width:300px;
+	color:#aaa;
+	font-size:16px;
+	border: 1px solid #b8b5b3;
+}
+
+.navbar-inverse form.navbar-form input
+{
+	width:150px;
+	margin:12px 0;
+}
+.navbar-inverse form.navbar-form input.btn
+{
+	width:80px;
+	height:30px;
+	margin:14px 0px;
+	padding: 9px 12px;
+	font-size:12px;
+	line-height:12px;
+	
+}
 .navbar .btn, .navbar .nav > li > a.btn
 {
 	padding-top: 0;
@@ -92,11 +119,11 @@ header > .navbar
 	margin: 12px;
 	display: inline-block;
 	vertical-align: middle;
-	padding: 10px 25px;
+	padding: 8px 15px;
 	border: 1px solid #b8b5b3;
 	color: #4383c5;
 	cursor: pointer;
-	font-size:14px;
+	font-size:12px;
 	font-weight:bold;
 	letter-spacing:.1em;	background: #f1f1f1;
 	border-radius: 2px;
@@ -108,23 +135,13 @@ header > .navbar
 	background: -o-linear-gradient(#ffffff 20%,#f8f8f8),#f8f8f8;
 	background: linear-gradient(#ffffff 20%,#f8f8f8),#f8f8f8;
 }
-form.navbar-form input.searchqueryfield
+
+.navbar-inverse a.join-btn
 {
-	height:20px;
-	margin:10px 0px;
-	padding:10px 10px;
-	width:300px;
-	color:#aaa;
-	font-size:16px;
-	border: 1px solid #b8b5b3;
+	float:right;
+	margin:12px;
 }
-form.navbar-form input.btn
-{
-	height:40px;
-	margin:10px 0px;
-	padding:10px 10px;
-	
-}
+
 form.inline-form input.main-search:focus
 {
 	color:#000;
@@ -229,7 +246,16 @@ div.container
 	margin:0 auto;
 }
 
-
+div.alert
+{
+	margin:0;
+	top:100px;
+	left:20px;
+	position:absolute;
+	z-index:9999;
+	opacity:.9;
+	font-weight:bold;
+}
 /* div column container */
 
 div.col-6
@@ -793,7 +819,11 @@ ul.favorites li.favorites-listitem p.fav-list-desc
 
 section#search
 {
-	background-color:#efeee9;
+	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
+    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
 }
 
 section#search div.col-12

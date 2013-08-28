@@ -32,11 +32,23 @@
 			<li></li>  
 			<li style= "float:right"><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
 			<% else %>
-			<li><%= link_to "Sign in", new_user_session_path %><li> 
-				<li><%= link_to "Join now ", new_user_registration_path, :class=>"btn btn-large" %><li>
+			<li>
+				<%= form_for :user,  :html => {:class => "form-inline navbar-form"} ,  :url => session_path(:user) do |f| %>
+				
+			  <%= f.email_field :email, :value => "Email", :onfocus => "if (this.value == 'Email') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Email';}" %>
+
+			  <%= f.password_field :password, :value => "Password", :onfocus => "if (this.value == 'Password') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Password';}" %>
+
+			  <%= f.submit "Sign in", :class =>"btn btn-success" %>
+			<% end %>
+			<li> 
 				
 		<% end %>
 		</ul>
+		<% if !user_signed_in? %>
+	<%= link_to "Join now ", new_user_registration_path, :class=>"btn btn-large join-btn" %>
+		<% end %>
+		
 		
 		
 		
@@ -46,7 +58,7 @@
 	
 		</header>
 			<% if flash[:notice] %>
-			<div class='alert <% if flash[:notice] =~ /Success/i %> alert-success <% else %> alert-error<% end %>'>
+			<div class='alert fade in <% if flash[:notice] =~ /Success/i %> alert-success <% else %> alert-error<% end %>' data-dismiss="alert">
 			<p><%= flash[:notice] %></p>
 			</div>
 			<% end %>
@@ -96,7 +108,18 @@ setInterval(function() {
     .end()
     .appendTo('#spider');
 },  6000);
+
+
+
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 3000);
+
+
 </script>
+
 
 
 

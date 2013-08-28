@@ -39,10 +39,20 @@
 			<li style= "float:right"><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
 			<% else %>
 			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Sign in ", new_user_session_path %><li>
+			<li>	<%= form_for :user,  :html => {:class => "form-inline navbar-form"} ,  :url => session_path(:user) do |f| %>
+				
+			  <%= f.email_field :email, :value => "Email", :onfocus => "if (this.value == 'Email') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Email';}" %>
+
+			  <%= f.password_field :password, :value => "Password", :onfocus => "if (this.value == 'Password') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Password';}" %>
+
+			  <%= f.submit "Sign in", :class =>"btn btn-success" %>
+			<% end %><li>
 		<% end %>
 		
 		</ul>
+			<% if !user_signed_in? %>
+		<%= link_to "Join now ", new_user_registration_path, :class=>"btn btn-large join-btn" %>
+			<% end %>
 		
 		</div>
 		</div>
