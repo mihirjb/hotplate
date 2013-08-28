@@ -16,7 +16,7 @@ raddress = page.css('.res-main-address-text').text.split.join(' ')
 rcost =  page.css('.cft-big').text.split.join(' ')
 rtimings =  page.css('.res-info-timings').text.split.join(' ')
 raddress.slice! "India"
-u.zurl.slice! "http://www.zomato.com/pune/"
+u.zurl.slice! "http://www.zomato.com/bangalore/"
 rarea =  u.zurl
 rarea = rarea.gsub("-"," ")
 doname = rname.downcase
