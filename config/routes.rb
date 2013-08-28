@@ -13,6 +13,9 @@ Hotplate::Application.routes.draw do
   devise_for :admins
 
   devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  
+  
   get "pages/thankyou"
   get "pages/userorderdetails"
   get "pages/transactionhistory"
