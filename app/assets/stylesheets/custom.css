@@ -89,10 +89,10 @@ header > .navbar
 {
 	padding-top: 0;
 	padding-bottom: 0;
-	margin: 16px;
+	margin: 12px;
 	display: inline-block;
 	vertical-align: middle;
-	padding: 6px 25px;
+	padding: 10px 25px;
 	border: 1px solid #b8b5b3;
 	color: #4383c5;
 	cursor: pointer;
