@@ -9,7 +9,9 @@
 	<h2>Update your details</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<div class=" alert alert-error">
   <%= devise_error_messages! %>
+</div>
 <fieldset>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
@@ -38,15 +40,16 @@
 		</div>  
 	</fieldset>
 <fieldset>
-		<div class="field">
-			<%= f.label :city, "Your City" %>
-			<%= f.text_field :city %>
-		</div>
 
 		<div>
 			<%= f.label :useraddress, "Your Address" %><br />
 			<%= f.text_field :useraddress %>
 		</div>
+			<div class="field">
+				<%= f.label :city, "Your City" %><br />
+				<%= f.text_field :city %>
+			</div>
+		
 		</fieldset>
 
 
