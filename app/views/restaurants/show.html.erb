@@ -10,8 +10,8 @@ end
 %>
 	<div id="MyDialog" class="hide" title="Customize Order">
 	 <form id="d-form">
-		<p class="itemdesc"></p>
 	    <fieldset>
+			<p class="itemdesc"></p>
 	        <label for="quantity">Quantity</label>
 	        <input type="text" name="quantity" id="quantity" class="required" />
 	        <label for="adjustments">Special Instructions</label>
@@ -98,7 +98,7 @@ end
 								
 								<form action="show_submit" method="get" accept-charset="utf-8">
 												<% @menuitem1.each do |i|%>
-												<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>"><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>										
+												<tr <% if @restaurant.delivers %> class="modalbtn<%=i.id%>" <% end %> ><td id="itemname<%=i.id%>" title='<%= i.itemdesc %>'><%= i.itemname %></td><td id="itemunitprice<%=i.id%>"><%= "#{i.itemunitprice}"  %></td><% if admin_signed_in? %><td><%= link_to "Delete", "/menuitems/#{i.id}", :method => 'DELETE' %></td><td><%= link_to "Edit", "/menuitems/#{i.id}/edit"%></td><% end %></tr>										
 
 											
 
@@ -106,7 +106,6 @@ end
 					
 					$( document ).load(function() {
 						$('#myDialog').hide();
-
 							$('.order-bucket').hide();
 						
 					});
@@ -152,8 +151,14 @@ end
 
 
 						$( ".modalbtn<%=i.id%>" ).click(function() { 
+						itemdesc =	$( "#itemname<%=i.id%>" ).attr("title");
 							itemclass = $(this).attr("class").replace(/[^0-9]/g, '');
-							$( "#MyDialog" ).dialog( "open" ); });
+							$(".itemdesc").text(itemdesc);
+							$( "#MyDialog" ).dialog( "open" ); 
+							
+							
+							
+							});
 
 						$(function() {
 

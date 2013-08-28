@@ -1,6 +1,6 @@
 section#main
 {
-	background-color:#efeee9;
+	background-color:#e9eae5;
 	overflow:auto;
 }
 section#main section#hero .jumbotron
@@ -19,17 +19,17 @@ section#content
 	-moz-box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
 	-webkit-box-shadow:rgba(0,0,0,0.1) 0 1px 2px 3px ;
 	box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
-}
-section#content .top-bar
-{
 	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
     background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
     background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
     background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
     background: linear-gradient(bottom,  #ededed, #fafafa 7px);
+}
+section#content .top-bar
+{
 padding:60px 0;
 margin:0;
-border:none;
+border-bottom:3px inset #efeee9;
 }
 
 section#content .top-bar ul li.selectcat
@@ -57,8 +57,12 @@ section#main section#hero
 section#content div#menu
 {
 	margin:0 1%;
+	
 }
-
+section#main div.container section#content .top-bar
+{
+	background-color:#fff;
+}
 
 
 div.order-bucket
@@ -114,7 +118,7 @@ div.menucontainer table td
 	font-size:14px;
 	float:none;
 	display:block;
-	background-color:#efeee9;
+	background-color:#e9eae5;
 	margin-bottom:5px;
 	color:#585858;
 }

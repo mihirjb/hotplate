@@ -175,6 +175,8 @@ form.inline-form input.main-search:focus
 	border:none;
 	border-top:1px solid #ccc;
 	border-bottom:1px solid #ccc;
+	background-color:#fff ;
+   	
 
 }
 .top-bar .nav > li > a {
@@ -188,7 +190,7 @@ form.inline-form input.main-search:focus
 {
 	width:85%;
 	margin:0 auto;
-   	background-color:transparent ;
+   	background-color:#fff ;
 	border:none;
 	background-image: none;
 	border-color:none;
@@ -284,7 +286,7 @@ div.col-4
 section#hero
 {
 	border-bottom: 1px solid #ccc;
-	background-color:#efeee9;
+	background-color:#e9eae5;
 }
 .jumbotron {
 font-size: 21px;
@@ -336,7 +338,7 @@ h3.menucategory
 	margin: 0 1.1;
 	border-bottom:1px solid #ccc;
 	color:rgb(238, 101, 87);
-	background-color:#efeee9;	
+	background-color:#e9eae5;	
 }
 
 div#menu 
@@ -468,7 +470,7 @@ div.reviews
 {
 	border-radius:8px;
 	color:#383838;
-	background-color:#efeee9;
+	background-color:#e9eae5;
 	width:100%;
 	margin:10px;
 }
