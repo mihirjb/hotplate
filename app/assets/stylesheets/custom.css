@@ -1014,5 +1014,8 @@ footer p.footer-rights
 {
 	margin-top:250px;
 	color:#efefef;
+	width:600px;
+	margin:0 auto;
 	font-size:12px;
+	text-align:center;
 }
