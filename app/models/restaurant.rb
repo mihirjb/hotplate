@@ -25,6 +25,9 @@
 #  rcost          :integer
 #  gmaps          :boolean
 #  onlyveg        :boolean
+#  rfeatures      :string(255)
+#  rcuisine       :string(255)
+#  slug           :string(255)
 #
 
 class Restaurant < ActiveRecord::Base
