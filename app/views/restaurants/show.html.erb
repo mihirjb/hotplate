@@ -337,7 +337,7 @@ end
 		<h1>About us</h1>
 		<div class="rest-images">
 		<%  @restaurant.assets.each do |a| %>
-		<%= image_tag a.image.url('small') %>
+		<%= image_tag a.image.url('thumb') %>
 		<%end%>
 		</div>
 		
