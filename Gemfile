@@ -15,6 +15,8 @@ gem 'twilio-ruby'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'friendly_id'
+gem 'paperclip', '3.4.2'
+gem 'aws-sdk'
 
 
 # Gems used only for assets and not required

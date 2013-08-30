@@ -335,6 +335,13 @@ end
 <div class="tab-pane fade in" id="info">
 	<div class="hotel-info">
 		<h1>About us</h1>
+		<div class="rest-images">
+		<%  @article.assets.each do |a| %>
+		<%= image_tag a.image.url('small') %>
+		<%end%>
+		</div>
+		
+		
 		<p><% if !@restaurant.restabout.blank? %>
 			
 			<%= "#{@restaurant.restabout}" %>

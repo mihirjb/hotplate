@@ -70,7 +70,17 @@
 			<%= f.label :deliveryarea, "List of areas the restaurantdelivers" %>
 			<%=  f.text_area :deliveryarea %>
 		</div>
+		<div class="newPaperclipFiles">
 
+		        <%= f.fields_for :assets do |asset| %>
+
+		           <% if asset.object.new_record? %>
+		                 <%= asset.file_field :image %>
+		           <% end %>
+
+		       <% end %>
+
+		</div>
 <div class="field">
 <%= f.submit "Add", :disable_with => 'Adding...' %>
 </div>

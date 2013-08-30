@@ -36,10 +36,14 @@ class Restaurant < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name_with_area_and_city, use: [:slugged, :history]
   
+ 
+  
   has_many :menuitems, :dependent => :destroy
   has_many :orderitems
   has_many :orders
   has_many :reviews, :dependent => :destroy
+  has_many :assets, :dependent => :destroy
+   accepts_nested_attributes_for :assets
   
                 # auto-fetch coordinates
 
