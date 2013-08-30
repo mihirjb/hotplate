@@ -31,7 +31,7 @@
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg,:rfeatures,:rcuisine
+  attr_accessible :restabout, :restdelmin, :restdeltime, :restname, :restphone, :raddress, :rarea, :rtimings, :rdelradius, :restusername,:restemail,:city,:deliveryarea,:delivers, :latitude, :longitude, :rcost, :gmaps, :onlyveg,:rfeatures,:rcuisine, :assets_attributes
   
   extend FriendlyId
   friendly_id :name_with_area_and_city, use: [:slugged, :history]
