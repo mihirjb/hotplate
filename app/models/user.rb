@@ -16,11 +16,11 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  userfullname           :string(255)
-#  userphonenumber        :decimal(, )
 #  useraddress            :string(255)
 #  latitude               :float
 #  longitude              :float
 #  city                   :string(255)
+#  userphonenumber        :string(255)
 #
 
 class User < ActiveRecord::Base

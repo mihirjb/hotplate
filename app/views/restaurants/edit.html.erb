@@ -1,3 +1,6 @@
+<div class="container">
+	
+	
 <%= form_for @restaurant, :html => { :multipart => true } do |f| -%>
 <div class="field">
 	<%= f.label :restusername, "Restaurant username" %>
@@ -73,17 +76,23 @@
 		</div>
 		<div class="existingPaperclipFiles">
 
-		     <% f.fields_for :assets do |asset| %>
+		     <%= f.fields_for :assets do |asset| %>
 
-		          <% unless asset.object.new_record? %>
-
+		          <%  unless asset.object.new_record?  %>
+		
 		                <div class="thumbnail">
 		                        <%= link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original) ) %>
 		                </div>
 
-		          <% end %>        
+ 
 
+		          <% end %> 
+			
+		
+	
 		     <% end %>
+	    
+		
 		</div>
 
 
@@ -91,4 +100,6 @@
 <%= f.submit "Update", :disable_with => 'Updating...' %>
 </div>
 <% end -%>
+
+</div>
 

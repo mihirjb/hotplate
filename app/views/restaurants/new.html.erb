@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for @restaurant, :html => { :multipart => true } do |f| -%>
 <div class="field">
 	<%= f.label :restusername, "Restaurant username" %>
@@ -85,3 +86,4 @@
 <%= f.submit "Add", :disable_with => 'Adding...' %>
 </div>
 <% end -%>
+</div>

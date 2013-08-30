@@ -34,8 +34,7 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
-    5.times { @restaurant.assets.build }
-    
+5.times { @restaurant.assets.build }
   end
 
   def update
