@@ -1,5 +1,5 @@
 <div class="container">
-<%= form_for @restaurant, :html => { :multipart => true } do |f| -%>
+<%= form_for @restaurant, :html => { :multipart => true, :class=> "admin_form" } do |f| -%>
 <div class="field">
 	<%= f.label :restusername, "Restaurant username" %>
 	<%= f.text_field :restusername %>
