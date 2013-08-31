@@ -217,3 +217,23 @@ div.container form.admin_form textarea
 	width:650px;
 	margin:10px 0px 20px;
 }
+
+
+
+/***************User Area **************/
+
+
+section.user-area
+{
+	-moz-box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	-webkit-box-shadow:rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	box-shadow: rgba(0,0,0,0.1) 0 1px 2px 3px ;
+	background: -webkit-gradient(linear,  50% 100%,  50% 0%,  color-stop(0%,  #ededed),  color-stop(100%,  #fafafa));
+    background: -webkit-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -moz-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: -o-linear-gradient(bottom,  #ededed, #fafafa 7px);
+    background: linear-gradient(bottom,  #ededed, #fafafa 7px);
+padding:5% 10%;
+width:80%;
+}
+
