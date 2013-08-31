@@ -35,18 +35,18 @@ Hotplate::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  config.action_mailer.default_url_options = { host: "www.5ve.in" }
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      address: "smtp.5ve.in",
-      domain: "www.5ve.in",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["SMTP_USERNAME"],
-      password: ENV["SMTP_PASSWORD"]
-    }
-    
+  config.action_mailer.default_url_options = { host: "www.foodzoo.in" }
+     config.action_mailer.raise_delivery_errors = true
+     config.action_mailer.delivery_method = :smtp
+     config.action_mailer.smtp_settings = {
+       address: "smtp.gmail.com",
+       port: 587,
+       authentication: "plain",
+       enable_starttls_auto: true,
+       user_name: ENV["SMTP_USERNAME"],
+       password: ENV["SMTP_PASSWORD"]
+     }
+
     config.paperclip_defaults = {
        :storage => :s3,
        :url => ":s3_domain_url",
