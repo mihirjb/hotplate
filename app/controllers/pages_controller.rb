@@ -31,6 +31,7 @@ class PagesController < ApplicationController
     end
     
   def thankyou
+    @user = current_user
     @orderdetails = Order.find_by_user_id(current_user.id, :order =>'created_at DESC')
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)

@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   has_many :restaurants, :through => :favorites
   
    has_many :beetheres
-   has_many :visitedhotels, :through => :beentheres, :dependent => :destroy, :source => :restaurants
+   has_many :visitedhotels, :through => :beentheres, :source => :restaurants
   
   has_many :orders
   has_many :reviews
