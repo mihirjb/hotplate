@@ -34,9 +34,9 @@ class PagesController < ApplicationController
     @orderdetails = Order.find_by_user_id(current_user.id, :order =>'created_at DESC')
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
-    #UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurqntdetails).deliver
-     #AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
-    #  RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+    UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurqntdetails).deliver
+     AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+     RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
   end
   
   def userorderdetails
@@ -44,9 +44,9 @@ class PagesController < ApplicationController
     @orderdetails = Order.find_by_user_id(current_user.id, :order =>'created_at DESC')
    @orderitems = Orderitem.find_all_by_order_id(@orderdetails.id)
     @restaurantdetails = Restaurant.find(@orderdetails.restaurant_id)
-  # UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
-   # AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
-    #RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+   UserMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+   AdminMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
+    RestaurantMailer.order_confirmation(@user,@orderdetails,@orderitems,@restaurantdetails).deliver
     # client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
 
         /# Create and send an SMS message
