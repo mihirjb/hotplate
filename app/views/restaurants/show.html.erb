@@ -53,20 +53,9 @@ end
 									<a href="#" id="<%= @restaurant.id%>" class="favorite"><span  class="glyphicon icon-heart"></span></a></p>
 								<% end %>
 								
-								<%   
-								
-								
-								 @instance = current_user
-							     @alreadypresent = Beenthere.find_by_restaurant_id(@restaurant.id,:conditions => ['restaurant_id iLIKE ? AND user_id iLIKE ?', @restaurant.id, @instance.id])
-							     if @alreadypresent
-																 %>
-								
+
 							<p class="badge faved"><a href="#" id="<%= @restaurant.id%>" class="been"><span class="glyphicon icon-ok-sign"></span></a></p>	
-							
-							<% else %>	
-								<p class="badge"><a href="#" id="<%= @restaurant.id%>" class="been"><span class="glyphicon icon-ok-sign"></span></a></p>	
-							
-							<% end %>
+						
 								
 				<% end %>
 		
