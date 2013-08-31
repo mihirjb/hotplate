@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     else
       password = ([*('A'..'Z'),*('0'..'9')]-%w(0 1 I O)).sample(8).join
      @user = User.create(:userfullname => params[:order][:customername],:userphonenumber => params[:order][:customernumber], :useraddress => params[:order][:customeraddress], :email => params[:order][:customeremail], :password => password, :password_confirmation => password)
-     UserMailer.registration_confirmation(@user).deliver
+    # UserMailer.registration_confirmation(@user).deliver
      @setpassword = true
      sign_in @user, :bypass => true 
      
