@@ -1,14 +1,13 @@
 class BeentheresController < ApplicationController
   before_filter :authenticate_user!
   def create
-    @instance = current_user
-      @alreadypresent = Beenthere.find_by_restaurant_id(@restaurant.id,:conditions => ['restaurant_id iLIKE ? AND user_id iLIKE ?', @restaurant.id, @instance.id])
-     if @alreadypresent
-        @alreadypresent.destroy
-    else
-    Beenthere.create(:restaurant_id => params[:restaurant_id], :user_id => @instance.id)
-    render :layout => false
-  end
+      @instance = current_user.beentheres.find_by_restaurant_id(params[:restaurant_id])
+      if @instance  
+        @instance.destroy
+      else
+      current_user.beentheres.create(:restaurant_id => params[:restaurant_id])
+        render :layout => false
+    end
   end
 
   def destroy
