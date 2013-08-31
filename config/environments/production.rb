@@ -77,7 +77,7 @@ Hotplate::Application.configure do
      authentication: "plain",
      enable_starttls_auto: true,
      user_name: "mihirjb@gmail.com",
-     password: "vixY.123net"
+     password: "wcbmunhnmbcinotf"
    }
 
   
