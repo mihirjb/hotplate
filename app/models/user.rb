@@ -53,7 +53,6 @@ class User < ActiveRecord::Base
    validates :email, :presence => true,:format => valid_email_format, :uniqueness => true
   validates_length_of :password,:in => 6..40, :on=>:create
    validates_length_of :userphonenumber,:in => 10..12
-   
    validates :password, :confirmation  => true
   
   
