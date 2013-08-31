@@ -1,4 +1,4 @@
-
+<section class="order">
 <h1>Thank you <%= @orderdetails.customername %></h1><p> for orderering from <%= @restaurantdetails.restname %> </p>
 <div class="alert alert-info">
 	<h3>Your Order Details are</h3>
@@ -38,3 +38,5 @@
 			</div>
 	
 		<h3><%= @restaurantdetails.restname %> takes <%= @restaurantdetails.restdeltime %> to deliver your food to you.</h3><p>Please feel free to surf our site till then. <%= link_to "Go back", root_path, :class=>"alert-link" %></p></div>
+		
+	</section>

@@ -251,13 +251,11 @@ div.container
 div.alert
 {
 	margin:0;
-	top:100px;
-	left:20px;
-	position:absolute;
-	z-index:9999;
 	opacity:.9;
 	font-weight:bold;
 }
+
+
 /* div column container */
 
 div.col-6

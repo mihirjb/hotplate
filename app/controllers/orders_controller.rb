@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       
     else
       password = ([*('A'..'Z'),*('0'..'9')]-%w(0 1 I O)).sample(8).join
-     @user = User.create(:userfullname => params[:order][:customername],:userphonenumber => params[:order][:custoemrnumber], :useraddress => params[:order][:customeraddress], :email => params[:order][:customeremail], :password => password, :password_confirmation => password)
+     @user = User.create(:userfullname => params[:order][:customername],:userphonenumber => params[:order][:customernumber], :useraddress => params[:order][:customeraddress], :email => params[:order][:customeremail], :password => password, :password_confirmation => password)
      UserMailer.registration_confirmation(@user).deliver
      @setpassword = true
      sign_in @user, :bypass => true 
@@ -28,11 +28,11 @@ class OrdersController < ApplicationController
   
    
    if user_signed_in?
-     params[:order] = {:customername => @current_user.userfullname,:custoemrnumber => @current_user.userphonenumber,:customeremail => @current_user.email,:customeraddress => @current_user.useraddress,:user_id => @current_user.id, :total=>params[:total],:restaurant_id => params[:restaurant_id]}
+     params[:order] = ({:customername => @current_user.userfullname,:customernumber => @current_user.userphonenumber,:customeremail => @current_user.email,:customeraddress => @current_user.useraddress,:user_id => @current_user.id, :total=>params[:total],:restaurant_id => params[:restaurant_id]})
    else
     params[:order] = params[:order].merge({:total=>params[:total],:restaurant_id => params[:restaurant_id]})
-    
   end
+  
         @order = Order.new(params[:order])
     if @order.save
       @neworder = Order.last
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
               redirect_to "/pages/userorderdetails"
     end
     else
-      redirect_to new_order_path
+      redirect_to :back, :notice=> "couldn't place order"
     end
       
   end  

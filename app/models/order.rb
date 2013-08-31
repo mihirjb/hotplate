@@ -12,16 +12,17 @@
 #  total           :integer
 #  customeremail   :string(255)
 #  user_id         :integer
+#  customernumber  :string(255)
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :custoemrnumber, :customeraddress, :customername,:restaurant_id, :total,:customeremail,:user_id
+  attr_accessible :customernumber, :customeraddress, :customername,:restaurant_id, :total,:customeremail,:user_id
   
   has_many :orderitems
   belongs_to :restaurant
   belongs_to :users
     
-  validates_presence_of :custoemrnumber
+  validates_presence_of :customernumber
   validates_presence_of :customeraddress
   validates_presence_of :customername
   validates_presence_of :user_id

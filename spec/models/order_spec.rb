@@ -12,6 +12,7 @@
 #  total           :integer
 #  customeremail   :string(255)
 #  user_id         :integer
+#  customernumber  :string(255)
 #
 
 require 'spec_helper'

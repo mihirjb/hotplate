@@ -27,7 +27,6 @@ end
 
 
 
-
 <section id="hero">
 <div class="container">
 <div class="jumbotron">
@@ -285,6 +284,27 @@ end
 
 			<!--REviews start here-->
 						<div class ="col-4 col-lg-4">
+								<% if @restaurant.delivers %>
+								<div class="delivers-info">
+
+								</div>
+								<% else %>
+									<div class="delivers-info">
+										<h3><%= @restaurant.restname %> currently doesn't accept orders.</h3>
+										<p>You can send them an email saying you want them to start taking orders</p>
+										<%= form_for :potentialusers, :url=> "/potentialusers/#{@restaurant.id}" do |f| %>
+										<div class ="field">
+										<%= f.text_field :email, :value => "Enter your email", :onfocus => "if (this.value == 'Enter your email') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Enter your email';}" %></div>
+										<div class ="field">
+											<%= f.submit "Let me know when they accept orders", :disable_with => 'Requesting...', :class => "btn btn-large btn-success" %>
+											</div>
+
+
+										<% end %>
+									</div>
+
+								<% end %>
+							
 							<div class="order-bucket tab-pane hide">
 						
 							<%= form_for :order, :class => "inline-form", :url => "/orders" do |f| -%>
@@ -309,8 +329,8 @@ end
 							</div>  
 
 							<div class="field">
-								<%= f.label :custoemrnumber, "Your number" %>
-								<%= f.text_field :custoemrnumber %>
+								<%= f.label :customernumber, "Your number" %>
+								<%= f.text_field :customernumber %>
 							</div>  
 
 								<div class="field">
