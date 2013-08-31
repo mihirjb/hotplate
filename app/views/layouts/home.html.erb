@@ -4,8 +4,8 @@
   <title>FoodZoo - Online food ordering platform</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application"  %>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
 		<link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
@@ -26,7 +26,7 @@
 				<li><%= link_to "Add BangaloreURLs", "/blorescrapurls/new" %></li>
 					<% end %>
 				<% if user_signed_in? %>
-				<li><%= link_to "Home", root_path %></li>
+				<li><%= link_to "Home", root_path, :class => "favorite" %></li>
 					<li><%= link_to "#{current_user.userfullname}", edit_user_registration_path %></li>
 					
 			<li></li>  
@@ -119,6 +119,27 @@ window.setTimeout(function() {
 }, 3000);
 
 
+$(".favorite").click(function() {
+	
+	var value = $(".favorite").attr('id');
+  var restaurant_id = $(this).attr('id');
+  $.ajax({
+    type: "POST",
+    url: 'favorites/' + restaurant_id,
+    success: function() {
+      // change image or something
+    }
+  });
+if (value == "Fav")
+{
+$(".favorite").text('UnFav');	
+}
+if (value == "UnFav")
+{
+$(".favorite").text('Fav');	
+}
+
+});
 </script>
 
 

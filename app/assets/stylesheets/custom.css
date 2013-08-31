@@ -321,13 +321,22 @@ padding-top:150px;
 {
 	margin:0;
 }
-/*
-.jumbotron span.icon-heart:hover, .jumbotron span.icon-heart:focus
+.jumbotron .badge a
 {
-	background-color:#CB202D;
+	tex-decoration:none;
+	background-color:transparent;
+}
+.jumbotron .faved
+{
+	background-color:#f00;
+	
+}
+
+.jumbotron .faved span.icon-heart, .jumbotron .faved span.icon-ok-sign
+{
 	background-image:url(/assets/glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png);
 }
-*/
+
 
 h3.menucategory
 {

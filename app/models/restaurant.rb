@@ -37,7 +37,10 @@ class Restaurant < ActiveRecord::Base
   friendly_id :name_with_area_and_city, use: [:slugged, :history]
   
  
-  
+  has_many :favorites
+   has_many :users, :through => :favorites
+   has_many :beetheres
+   has_many :visitors, :through => :beentheres, :dependent => :destroy, :source => :users
   has_many :menuitems, :dependent => :destroy
   has_many :orderitems
   has_many :orders

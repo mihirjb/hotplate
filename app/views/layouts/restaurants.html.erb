@@ -70,5 +70,64 @@
 </footer>
 </body>
 </html>
+<script>
+	$(".favorite").click(function() {
+		
+		var classy =	$(".favorite").parent().attr('class');
+		
+	  var restaurant_id = $(this).attr('id');
+	  $.ajax({
+	    type: "POST",
+	  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	
+	    url: '/favorites/' + restaurant_id,
+	  processData : false,
+	    success: function() {
+	      // change image or something
+	
 
+	
+	    }
+	  });
+	if (classy == "badge")
+	{
+	  $(".favorite").parent().addClass( "faved" );
+	}
+	else
+	{
+		$(".favorite").parent().removeClass( "faved" );
+	}
+	
+	return false;
+	
+	});
+	
+	
+	$(".been").click(function() {
+		var classy =	$(".been").parent().attr('class');
+		
+	  var restaurant_id = $(this).attr('id');
+	  $.ajax({
+	    type: "POST",
+	  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	
+	    url: '/beentheres/' + restaurant_id,
+	  processData : false,
+	    success: function() {
+	      // change image or something
+
+	    }
+	  });
+	if (classy == "badge")
+	{
+	  $(".been").parent().addClass( "faved" );
+	}
+	else
+	{
+		$(".been").parent().removeClass( "faved" );
+	}
+	return false;
+	
+	});
+</script>
 

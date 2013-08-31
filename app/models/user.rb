@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :userfullname, :userphonenumber, :useraddress,:id,:latitude, :longitude, :city
   # attr_accessible :title, :body
   
+  has_many :favorites
+  has_many :restaurants, :through => :favorites
+  
+   has_many :beetheres
+   has_many :visitedhotels, :through => :beentheres, :dependent => :destroy, :source => :restaurants
   
   has_many :orders
   has_many :reviews

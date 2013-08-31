@@ -43,9 +43,33 @@ end
 				<p class="badge"><span class="glyphicon icon-tags"></span> <strong>Features:</strong> <%= "#{@restaurant.rfeatures}"  %> </p></div>
 		<div class="right">
 			<p class="reviewscore"><%= "#{@reviewscore}" unless @reviewscore.nil? %> <%= "No" if @reviewscore.nil? %>  <br /><span class="small">review score</span></p>
-			<p class="badge"><span class="glyphicon icon-heart"></span></p>
-			<p class="badge"><span class="glyphicon icon-ok-sign"></span></p>
-		<p class="badge"><span class="glyphicon icon-comment"></span></p>
+				<% if user_signed_in?%>
+				<%    @instance = current_user.favorites.find_by_restaurant_id(@restaurant.id) %>
+				<% if  @instance %>
+							<p class="badge faved">
+								<a href="#" id="<%= @restaurant.id%>" class="favorite"><span  class="glyphicon icon-heart"></span></a></p>
+								<% else %>
+								<p class="badge">
+									<a href="#" id="<%= @restaurant.id%>" class="favorite"><span  class="glyphicon icon-heart"></span></a></p>
+								<% end %>
+								
+								<%   
+								
+								
+								 @instance = current_user
+							     @alreadypresent = Beenthere.find_by_restaurant_id("#{@restaurant.id}",:conditions => ['restaurant_id LIKE ? AND user_id LIKE ?', "#{@restaurant.id}", "#{@instance.id}"])
+							     if @alreadypresent
+																 %>
+								
+							<p class="badge faved"><a href="#" id="<%= @restaurant.id%>" class="been"><span class="glyphicon icon-ok-sign"></span></a></p>	
+							
+							<% else %>	
+								<p class="badge"><a href="#" id="<%= @restaurant.id%>" class="been"><span class="glyphicon icon-ok-sign"></span></a></p>	
+							
+							<% end %>
+								
+				<% end %>
+		
 		</div>
 			
 	<p>
@@ -112,6 +136,8 @@ end
 					
 					var itemclass;
 					var total = 0;
+					
+					
 
 					$(".remove").live('click', function(event) {
 
@@ -147,6 +173,7 @@ end
 					});
 
 
+				
 
 
 
@@ -154,10 +181,7 @@ end
 						itemdesc =	$( "#itemname<%=i.id%>" ).attr("title");
 							itemclass = $(this).attr("class").replace(/[^0-9]/g, '');
 							$(".itemdesc").text(itemdesc);
-							$( "#MyDialog" ).dialog( "open" ); 
-							
-							
-							
+							$( "#MyDialog" ).dialog( "open" ); 							
 							});
 
 						$(function() {

@@ -1,6 +1,16 @@
 Hotplate::Application.routes.draw do
 
 
+  get "beentheres/create"
+
+  get "beentheres/destroy"
+
+  get "beetheres/create"
+
+  get "beetheres/destroy"
+
+  get "favorites/decide"
+
   resources :mumscrapurls
 
 
@@ -37,8 +47,14 @@ Hotplate::Application.routes.draw do
        resources :orders
        resources :orderitems
        resources :reviews
-       
+       get "favorites/create"
+
+        get "favorites/destroy"
+
+resources :favorites       
        devise_for :admins, :controllers => { :registrations => "admins/registrations" }
+       match "/favorites/:restaurant_id" => "favorites#decide", :as => :favorite
+       match "/beentheres/:restaurant_id" => "beentheres#create", :as => :beenthere
   
   
   # The priority is based upon order of creation:
