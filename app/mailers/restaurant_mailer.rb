@@ -1,6 +1,6 @@
 class RestaurantMailer < ActionMailer::Base
   
-  default :from => "mihir@5ve.in"
+  default :from => "general@5ve.in"
   
   def order_confirmation(user,orderdetails,orderitems,restaurantdetails)
     
