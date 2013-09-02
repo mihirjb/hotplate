@@ -406,13 +406,12 @@ end
 				<div class ="col-12 col-lg-12">
 			<div class="review-box">
 			<h2 class="review-heading">
-			<% if @restaurant.reviews.empty? %> 
+			<% if @restaurant.reviews.find_all_by_status("ok").empty? %> 
 				<%= "There are no reviews for this restaurant yet. Be the first one to write a review." %>
 				<% else %> 
 				<%= "Reviews for #{@restaurant.restname}" %> 
-				<% end %>
 				</h2>
-			<% @review.each do |r| %>
+			<% @restaurant.reviews.find_all_by_status("ok").each do |r| %>
 						<div class="reviews">
 							<h4><%= r.title %></h4>
 							<p id="reviewscore"><%= r.score %>/5</p>
@@ -420,6 +419,8 @@ end
 							<p><%= r.reviewtext %></p>
 							</div>
 							<% end %>
+							<% end %>
+							
 							</div>
 								<div class="review-form form">
 									<% if user_signed_in? %>
@@ -441,6 +442,7 @@ end
 											</div>
 
 											<%= hidden_field_tag :restaurant_id, @restaurant.id %>
+											<%= hidden_field_tag :status, "pending" %>
 
 												<div class="field">
 												<%= ff.submit "Add Review", :disable_with => 'Adding...', :class =>"btn btn-success" %>

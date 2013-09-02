@@ -14,7 +14,7 @@
 #
 
 class Review < ActiveRecord::Base
-  attr_accessible :author, :restaurant_id, :reviewtext, :title, :user_id, :score
+  attr_accessible :author, :restaurant_id, :reviewtext, :title, :user_id, :score, :status
   
   belongs_to :user
   belongs_to :restaurant
@@ -25,5 +25,6 @@ class Review < ActiveRecord::Base
   validates_presence_of :reviewtext
   validates_presence_of :title
   validates_presence_of :user_id
+  validates_presence_of :status
     
 end
