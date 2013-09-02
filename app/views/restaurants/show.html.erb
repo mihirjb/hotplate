@@ -406,7 +406,7 @@ end
 				<div class ="col-12 col-lg-12">
 			<div class="review-box">
 			<h2 class="review-heading">
-			<% if @restaurant.reviews.find_all_by_stauts("ok").empty? %> 
+			<% if @restaurant.reviews.find_all_by_status("ok").empty? %> 
 				<%= "There are no reviews for this restaurant yet. Be the first one to write a review." %>
 				<% else %> 
 				<%= "Reviews for #{@restaurant.restname}" %> 
