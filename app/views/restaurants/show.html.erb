@@ -1,7 +1,7 @@
-<% if ! @restaurant.reviews.find_all_by_status("ok").blank?
-	@numreview =  @restaurant.reviews.find_all_by_status("ok").count.to_f
+<% if !@review.blank?
+	@numreview = @review.count.to_f
 	@reviewtotal = 0
-		 @restaurant.reviews.find_all_by_status("ok").each do |r|
+		@review.each do |r|
 	 	@reviewtotal += r.score
 end 
 
