@@ -17,6 +17,7 @@ gem 'gmaps4rails'
 gem 'friendly_id'
 gem 'paperclip', '3.4.2'
 gem 'aws-sdk'
+gem 'newrelic_rpm'
 
 
 # Gems used only for assets and not required
