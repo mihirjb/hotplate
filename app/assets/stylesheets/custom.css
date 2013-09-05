@@ -657,6 +657,8 @@ margin:-375px auto 0;
 width:740px;
 
 }
+
+
 #spider > div { 
 	width:740px;
 	height:240px;
@@ -695,6 +697,43 @@ div#spider h1.header
 	border-bottom:1px solid #3e3e3e;
 	padding:10px;
 }
+
+#next-to-spider { 
+	border-bottom:1px inset #eee;
+	clear:both;
+	overflow:hidden;
+	-webkit-box-shadow: 0 0 0 1px rgba(67, 131, 197, 0.9) inset, 0 0 8px rgba(67, 131, 197, 0.8);
+	    -moz-box-shadow: 0 0 0 1px rgba(67, 131, 197, 0.9) inset, 0 0 8px rgba(67, 131, 197, 0.8);
+	    box-shadow: 0 0 0 1px rgba(67, 131, 197, 0.9) inset, 0 0 8px rgba(67, 131, 197, 0.8);
+	z-index:10;
+	margin: 20px 0;
+background-color: #fff !important;
+width:740px !important;
+
+}
+#next-to-spider h3
+{
+	color:#4383c5;
+	padding:0  20px;
+}
+
+#next-to-spider p
+{
+	color:#4383c5;
+	padding:0 20px;
+}
+#next-to-spider form
+{
+	margin:10px 20px 30px;
+}
+
+div.fb-like
+{
+	margin:8px 20px;
+	color:#fff;
+}
+
+
 
 section#main-page
 {

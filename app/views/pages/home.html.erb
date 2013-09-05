@@ -47,12 +47,37 @@
 						                 </div>
 						</div>
 		</div>
+	
+		
 	</div>
 	
 </section>
 
 <section class="form-gray">
-		<div class="container">
+	<div class="container">
+	
+			<% if params[:city] == "jga" %>
+
+
+			<div id="next-to-spider">
+					<h3>Jamnagar doesn't have online ordering</h3>
+					<p>This is a poll to see how many of us want online food ordering in Jamnagar</p>
+					<%= form_for :jampotentialusers, :url=> "/jampotentialusers" do |f| %>
+					<div class ="field">
+					<%= f.text_field :email, :value => "Enter your email", :onfocus => "if (this.value == 'Enter your email') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Enter your email';}" %></div>
+					<div class ="field">
+						<%= f.submit "Let me know", :disable_with => 'Requesting...', :class => "btn btn-large btn-success" %>
+						</div>
+
+
+					<% end %>
+				<div class="fb-like" data-href="http://www.foodzoo.in" data-width="450" data-show-faces="true" data-send="false"></div>
+				</div>
+				<% else %>
+	
+
+	
+	
 			<%= form_tag "/pages/searchresults" ,:class=>"inline-form mainpage-form", :method => 'get' do %>
 				  <p>
 					<%= text_field_tag :searchquery, "Search restaurants by name, area, cuisine and menu items", :onfocus => "if (this.value == 'Search restaurants by name, area, cuisine and menu items') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Search restaurants by name, area, cuisine and menu items';}",:class=>"main-search typeahead"  %>
@@ -63,6 +88,9 @@
 				<% end %>
 
 		</div>
+		
+		<% end %>
+		
 		</section>
 <section id="main-page">
 	<div class="container">
@@ -126,7 +154,14 @@
 </section>
 
 -->
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=174725272604754";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 	

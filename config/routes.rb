@@ -1,6 +1,7 @@
 Hotplate::Application.routes.draw do
 
 
+
   get "potentialusers/create"
 
   get "beentheres/create"
@@ -58,6 +59,7 @@ resources :favorites
        match "/favorites/:restaurant_id" => "favorites#decide", :as => :favorite
        match "/beentheres/:restaurant_id" => "beentheres#create", :as => :beenthere
        match "/potentialusers/:restaurant_id" => "potentialusers#create", :as => :potentialuser
+       match "/jampotentialusers" => "jampotentialusers#create"
   
   
   # The priority is based upon order of creation:
