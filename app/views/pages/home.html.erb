@@ -76,7 +76,25 @@
 				<% else %>
 	
 
+					<% if params[:city] == "rjkt" %>
+
+
+					<div id="next-to-spider">
+							<h3>Rajkot doesn't have online ordering</h3>
+							<p>It is your chance to bring Foodzoo to Rajkot and start the online food ordering revolution</p>
+							<%= form_for :rajpotentialusers, :url=> "/rajpotentialusers" do |f| %>
+							<div class ="field">
+							<%= f.text_field :email, :value => "Enter your email", :onfocus => "if (this.value == 'Enter your email') {this.value = '';}", :onblur=>"if (this.value == '') {this.value = 'Enter your email';}" %></div>
+							<div class ="field">
+								<%= f.submit "Let me know", :disable_with => 'Requesting...', :class => "btn btn-large btn-success" %>
+								</div>
+
+
+							<% end %>
+						<div class="fb-like" data-href="http://www.foodzoo.in" data-width="450" data-show-faces="true" data-send="false"></div>
+						</div>
 	
+						<% else %>
 	
 			<%= form_tag "/pages/searchresults" ,:class=>"inline-form mainpage-form", :method => 'get' do %>
 				  <p>
@@ -85,6 +103,7 @@
 					
 				    <%= submit_tag "Get Started", :name => nil, :class => "btn btn-primary btn-large" %>
 				  </p>
+				<% end %>
 				<% end %>
 
 		</div>

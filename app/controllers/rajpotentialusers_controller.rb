@@ -1,10 +1,10 @@
-class JampotentialusersController < ApplicationController
+class RajpotentialusersController < ApplicationController
   def create
-  if  params[:jampotentialusers][:email] == "Enter you email" 
+  if  params[:rajpotentialusers][:email] == "Enter you email" 
     redirect_to :back, :notice => "Try entering a valid email. Dont simply press the button"
    else
      
-        @user  = Jampotentialuser.create(:email =>params[:jampotentialusers][:email])
+        @user  = Rajpotentialuser.create(:email =>params[:rajpotentialusers][:email])
         if @user
           redirect_to :back, :notice => "Your request has been successfully sent. Thank you."
         end
