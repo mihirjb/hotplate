@@ -50,7 +50,6 @@ class Restaurant < ActiveRecord::Base
   
                 # auto-fetch coordinates
 
-                acts_as_gmappable
 
                 def gmaps4rails_address
                   "#{self.restname},#{self.rarea}, #{self.city}" 

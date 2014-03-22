@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(:version => 20130907141656) do
     t.string   "itemcategory"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "restaurant_id"
     t.string   "itemdesc"
+    t.integer  "restaurant_id"
   end
 
   create_table "mumscrapurls", :force => true do |t|
@@ -145,13 +145,14 @@ ActiveRecord::Schema.define(:version => 20130907141656) do
   create_table "restaurants", :force => true do |t|
     t.string   "restusername"
     t.string   "restname"
+    t.string   "restaddressline1"
+    t.string   "restaddressline2"
     t.integer  "restphone"
-    t.time     "resttimingfrom"
     t.string   "restdeltime"
     t.string   "restdelmin"
     t.text     "restabout"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "restemail"
     t.string   "city"
     t.string   "deliveryarea"
